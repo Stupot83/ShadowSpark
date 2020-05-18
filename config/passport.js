@@ -8,20 +8,17 @@ const opts = {};
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 opts.secretOrKey = connect.secretOrKey;
 
-// Check jwt_payload sent by login Endpoint
-const passport = () => {
-    passport.use(
-        new JwtStrategy(opts, (jwt_payload, done) => {
-            Dev.findById(jwt_payload.id)
-                .then((dev) => {
-                    if (dev) {
-                        return done(null, dev);
-                    }
-                    return done(null, false);
-                })
-                .catch((err) => console.log(err));
+module.exports = passport => {
+  passport.use(
+    new JwtStrategy(opts, (jwt_payload, done) => {
+      Dev.findById(jwt_payload.id)
+        .then(dev => {
+          if (dev) {
+            return done(null, dev);
+          }
+          return done(null, false);
         })
-    );
+        .catch(err => console.log(err));
+    })
+  );
 };
-
-module.exports = passport;
