@@ -1,0 +1,19 @@
+.Landing_container {
+    margin-top: 64px;
+
+    .Logo {
+        height: 100%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .Button_box {
+        text-align: center;
+        height: 80%;
+
+        .Button_link {
+           line-height: 50px;
+        }
+    }
+}
