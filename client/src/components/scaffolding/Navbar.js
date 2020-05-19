@@ -34,9 +34,7 @@ export default function Navbar() {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Link
-                        to="/"
-                    >
+                    <Link to="/">
                         <Typography variant="h6" className={classes.title}>
                             ShadowSpark UI
                         </Typography>
