@@ -1,10 +1,11 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
+import Navbar from "./components/scaffolding/Navbar";
 
 function App() {
   return (
     <div className="App">
-      <h1>ShadowSpark</h1>
+      <Navbar />
     </div>
   );
 }
