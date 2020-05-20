@@ -102,7 +102,6 @@ class Registration extends Component {
                                 error={errors.password}
                                 id="password"
                                 type="password"
-                                autoComplete="off"
                                 className="registration-field"
                             />
                             <div className="registration-error">
@@ -122,7 +121,6 @@ class Registration extends Component {
                                 error={errors.password2}
                                 id="password2"
                                 type="password"
-                                autoComplete="off"
                                 className="registration-field"
                             />
                             <div className="registration-error">

@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { loginDev } from "../../actions/authenticationActions";
 import "../../Login.scss";
 import Button from "@material-ui/core/Button";
 class Login extends Component {
@@ -10,6 +13,17 @@ class Login extends Component {
             password: "",
             errors: {},
         };
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.auth.isAuthenticated) {
+            this.props.history.push("/home"); // Redirect Dev to Home Page once logged in
+        }
+        if (nextProps.errors) {
+            this.setState({
+                errors: nextProps.errors,
+            });
+        }
     }
 
     onChange = (e) => {
@@ -25,6 +39,8 @@ class Login extends Component {
         };
 
         console.log(devData);
+
+        this.props.loginDev(devData);
     };
 
     render() {
@@ -92,4 +108,15 @@ class Login extends Component {
     }
 }
 
-export default Login;
+Login.propTypes = {
+    loginDev: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+    errors: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+    auth: state.auth,
+    errors: state.errors,
+});
+
+export default connect(mapStateToProps, { loginDev })(Login);
