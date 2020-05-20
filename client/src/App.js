@@ -6,6 +6,7 @@ import Navbar from "./components/scaffolding/Navbar";
 import Landing from "./components/scaffolding/Landing";
 import Registration from "./components/auth/Registration";
 import Login from "./components/auth/Login";
+import Home from "./components/home/Home";
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
                     <Route exact path="/" component={Landing} />
                     <Route exact path="/register" component={Registration} />
                     <Route exact path="/login" component={Login} />
+                    <Route exact path="/home" component={Home} />
                 </div>
             </Router>
         </Provider>
