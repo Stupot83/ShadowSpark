@@ -18,6 +18,13 @@ class Registration extends Component {
         };
     }
 
+    componentDidMount() {
+        // If Dev is logged in and clicks on registration page they are redirected to home
+        if (this.props.auth.isAuthenticated) {
+            this.props.history.push("/home");
+        }
+    }
+
     componentWillReceiveProps(nextProps) {
         if (nextProps.errors) {
             this.setState({

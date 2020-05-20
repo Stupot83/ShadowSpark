@@ -15,6 +15,13 @@ class Login extends Component {
         };
     }
 
+    componentDidMount() {
+        // If Dev is logged in and clicks on login page they are redirected to home
+        if (this.props.auth.isAuthenticated) {
+            this.props.history.push("/home");
+        }
+    }
+
     componentWillReceiveProps(nextProps) {
         if (nextProps.auth.isAuthenticated) {
             this.props.history.push("/home"); // Redirect Dev to Home Page once logged in
@@ -73,7 +80,7 @@ class Login extends Component {
 
                     <div className="login-section">
                         <label>
-                            <div className="login-label">Email</div>
+                            <div className="login-label">Password</div>
                             <input
                                 onChange={this.onChange}
                                 value={this.state.password}
