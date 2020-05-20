@@ -62,5 +62,5 @@ export const logoutDev = () => (dispatch) => {
     // Remove the auth header for future requests
     setAuthenticationToken(false);
     // Set the current Dev to an empty object {} which sets isAuthenticated to false
-    dispatch(setCurrentUser({}));
+    dispatch(setCurrentDev({}));
 };
