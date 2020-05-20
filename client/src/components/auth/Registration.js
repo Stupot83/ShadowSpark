@@ -22,14 +22,14 @@ class Registration extends Component {
     onSubmit = (e) => {
         e.preventDefault();
 
-        const newUser = {
+        const newDev = {
             name: this.state.name,
             email: this.state.email,
             password: this.state.password,
             password2: this.state.password2,
         };
 
-        console.log(newUser);
+        console.log(newDev);
     };
 
     render() {
