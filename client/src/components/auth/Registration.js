@@ -1,5 +1,8 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { registerDev } from "../../actions/authenticationActions";
 import "../../Registration.scss";
 import Button from "@material-ui/core/Button";
 
@@ -13,6 +16,14 @@ class Registration extends Component {
             password2: "",
             errors: {},
         };
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.errors) {
+            this.setState({
+                errors: nextProps.errors,
+            });
+        }
     }
 
     onChange = (e) => {
@@ -30,6 +41,8 @@ class Registration extends Component {
         };
 
         console.log(newDev);
+
+        this.props.registerDev(newDev, this.props.history);
     };
 
     render() {
@@ -139,4 +152,17 @@ class Registration extends Component {
     }
 }
 
-export default Registration;
+Registration.propTypes = {
+    registerDev: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+    errors: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+    auth: state.auth,
+    errors: state.errors,
+});
+
+export default connect(mapStateToProps, { registerDev })(
+    withRouter(Registration)
+);
