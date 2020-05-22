@@ -1,0 +1,49 @@
+.Navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Navbar_title {
+    color: white;
+    text-decoration: none;
+}
+
+.Profile {
+    display: flex;
+
+    .Profile_email {
+        margin-top: 0.7rem;
+        margin-right: 2rem;
+    }
+}
+
+.AccountCircle {
+    color: white;
+}
+
+.dropdown {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid gray;
+    background-color: ghostwhite;
+    padding: 1rem;
+    transform: translate(7.5rem, 3.4rem);
+
+    .dropdown_button {
+        margin-bottom: 10px;
+    }
+
+    .dropdown_button a {
+        text-decoration: none;
+        color: #3F51B5;
+
+    }
+}
+
+.Toolbar {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    display: flex;
+    align-items: center;
+}

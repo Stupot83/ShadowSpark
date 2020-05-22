@@ -5,11 +5,11 @@ import setAuthenticationToken from "./config/setAuthenticationToken";
 import { setCurrentDev, logoutDev } from "./actions/authenticationActions";
 import { Provider } from "react-redux";
 import reduxStore from "./reduxStore";
-import Navbar from "./components/scaffolding/Navbar";
 import Landing from "./components/scaffolding/Landing";
 import Registration from "./components/auth/Registration";
 import Login from "./components/auth/Login";
 import ProtectedRoute from "./components/protected-route/protectedRoute";
+import Navbar from "./components/home/Navbar";
 import Home from "./components/home/Home";
 
 // Check for token to keep the Dev logged in
