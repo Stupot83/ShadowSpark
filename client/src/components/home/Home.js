@@ -1,13 +1,15 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutDev } from "../../actions/authenticationActions";
 import Button from "@material-ui/core/Button";
 
 class Home extends Component {
-    onLogoutClick = (e) => {
+    onLogoutClick = e => {
         e.preventDefault();
-        this.props.logoutDev();
+        this.props.logoutDev(this.props.history);
+        window.location.href = "/";
     };
 
     render() {
@@ -34,4 +36,4 @@ const mapStateToProps = (state) => ({
     auth: state.auth,
 });
 
-export default connect(mapStateToProps, { logoutDev })(Home);
+export default connect(mapStateToProps, { logoutDev })(withRouter(Home));
