@@ -19,6 +19,7 @@ import HomeIcon from "@material-ui/icons/Home";
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import SettingsBrightnessIcon from '@material-ui/icons/SettingsBrightness';
 import AccountTreeIcon from '@material-ui/icons/AccountTree';
+import Logo from "../../../src/logo.png";
 import "../../HamburgerMenu.scss";
 
 const drawerWidth = 240;
@@ -98,6 +99,7 @@ const HamburgerMenu = (props) => {
                 }}
             >
                 <div className={classes.drawerHeader}>
+                <img className="Logo" src={Logo} alt="Logo" />
                     <IconButton onClick={handleDrawerClose}>
                         <ChevronLeftIcon fontSize="large" />
                     </IconButton>

@@ -2,33 +2,23 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { logoutDev } from "../../actions/authenticationActions";
-import Button from "@material-ui/core/Button";
+import Navbar from "../home/Navbar";
+import HamburgerMenu from "../home/HamburgerMenu";
 
 class Home extends Component {
-    onLogoutClick = e => {
-        e.preventDefault();
-        this.props.logoutDev(this.props.history);
-        window.location.href = "/";
-    };
+    
 
     render() {
         return (
             <div>
-                <Button
-                    onClick={this.onLogoutClick}
-                    variant="contained"
-                    color="primary"
-                >
-                    Logout
-                </Button>
+               <Navbar />
+               <HamburgerMenu />
             </div>
         );
     }
 }
 
 Home.propTypes = {
-    logoutDev: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
 };
 
@@ -36,4 +26,4 @@ const mapStateToProps = (state) => ({
     auth: state.auth,
 });
 
-export default connect(mapStateToProps, { logoutDev })(withRouter(Home));
+export default connect(mapStateToProps)(withRouter(Home));
