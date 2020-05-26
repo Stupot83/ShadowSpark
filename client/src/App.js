@@ -11,6 +11,7 @@ import Login from "./components/auth/Login";
 import ProtectedRoute from "./components/protected-route/protectedRoute";
 import Navbar from "./components/home/Navbar";
 import Home from "./components/home/Home";
+import HamburgerMenu from "./components/home/HamburgerMenu";
 
 // Check for token to keep the Dev logged in
 if (localStorage.jwtToken) {
@@ -37,6 +38,7 @@ function App() {
             <Router>
                 <div className="App">
                     <Navbar />
+                    <HamburgerMenu />
                     <Route exact path="/" component={Landing} />
                     <Route exact path="/register" component={Registration} />
                     <Route exact path="/login" component={Login} />
