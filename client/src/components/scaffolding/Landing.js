@@ -37,7 +37,7 @@ export default function Landing() {
     const classes = useStyles();
 
     return (
-        <div className={classes.root}>
+        <div className={classes.root, "root"}>
             <Container className="Landing_container">
                 <Grid container spacing={3}>
                     <Grid className={classes.titleGrid} item xs={12}>
