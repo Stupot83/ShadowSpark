@@ -8,9 +8,13 @@
         display: flex;
         align-items: center;
 
-        .Navbar_title {
-            color: white;
-            text-decoration: none;
+        .Navbar_title_grid {
+            text-align: center;
+            
+            .Navbar_title {
+                color: white;
+                text-decoration: none;
+            }
         }
 
         .Profile {

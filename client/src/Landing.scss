@@ -1,5 +1,5 @@
 .Landing_container {
-    margin-top: 64px;
+    padding-top: 64px;
 
     .Logo {
         height: 100%;
@@ -11,9 +11,9 @@
     .Button_box {
         text-align: center;
         height: 80%;
+    }
 
-        .Button_link {
-           line-height: 50px;
-        }
+    .Landing_button {
+        min-width: 115px;
     }
 }

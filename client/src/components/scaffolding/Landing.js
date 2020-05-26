@@ -6,6 +6,7 @@ import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import Logo from "../../../src/logo.png";
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -48,18 +49,22 @@ export default function Landing() {
                     <Grid className={classes.imageGrid} item xs={12}>
                         <img className="Logo" src={Logo} alt="Logo" />
                     </Grid>
-                    <Grid className={classes.buttonGrid} item xs={6}>
-                        <Box className="Button_box" variant="outlined" xs={6}>
-                            <Link className="Button_link" to="/register">
-                                Register
-                            </Link>
+                    <Grid className={classes.buttonGrid} item xs={3}>
+                        <Box className="Button_box" variant="outlined">
                         </Box>
                     </Grid>
-                    <Grid className={classes.buttonGrid} item xs={6}>
-                        <Box className="Button_box" variant="outlined" xs={6}>
-                            <Link className="Button_link" to="/login">
-                                Login
-                            </Link>
+                    <Grid className={classes.buttonGrid} item xs={3}>
+                        <Box className="Button_box" variant="outlined">
+                            <Button component={Link} className="Landing_button" variant="contained" size="large" color="secondary" to="/register">Register</Button>
+                        </Box>
+                    </Grid>
+                    <Grid className={classes.buttonGrid} item xs={3}>
+                        <Box className="Button_box" variant="outlined">
+                            <Button component={Link} className="Landing_button" variant="contained" size="large" color="primary" to="/login">Login</Button>
+                        </Box>
+                    </Grid>
+                    <Grid className={classes.buttonGrid} item xs={3}>
+                        <Box className="Button_box" variant="outlined">
                         </Box>
                     </Grid>
                 </Grid>
