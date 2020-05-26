@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { logoutDev } from "../../actions/authenticationActions";
@@ -6,97 +6,118 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
+import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import HomeIcon from "@material-ui/icons/Home";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import "../../Navbar.scss";
 
-class Navbar extends Component {
-    constructor() {
-        super();
+const StyledMenu = withStyles({
+    paper: {
+        border: "1px solid #d3d4d5",
+        marginTop: "14px",
+    },
+})((props) => (
+    <Menu
+        elevation={0}
+        getContentAnchorEl={null}
+        anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "center",
+        }}
+        transformOrigin={{
+            vertical: "top",
+            horizontal: "center",
+        }}
+        {...props}
+    />
+));
 
-        this.state = {
-            showMenu: false,
-        };
+const StyledMenuItem = withStyles((theme) => ({
+    root: {
+        "&:hover": {
+            backgroundColor: theme.palette.action.hover,
+            "& .MuiListItemIcon-root, & .MuiListItemText-primary": {
+                color: theme.palette.text.secondary,
+            },
+        },
+    },
+}))(MenuItem);
 
-        this.showMenu = this.showMenu.bind(this);
-        this.closeMenu = this.closeMenu.bind(this);
-    }
+const Navbar = (props) => {
+    const [anchorEl, setAnchorEl] = React.useState(null);
 
-    showMenu(event) {
-        event.preventDefault();
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
 
-        this.setState({ showMenu: true }, () => {
-            document.addEventListener("click", this.closeMenu);
-        });
-    }
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
 
-    closeMenu(event) {
-        if (!this.dropdownMenu.contains(event.target)) {
-            this.setState({ showMenu: false }, () => {
-                document.removeEventListener("click", this.closeMenu);
-            });
-        }
-    }
-
-    onLogoutClick = (e) => {
+    const onLogoutClick = (e) => {
         e.preventDefault();
-        this.props.logoutDev(this.props.history);
+        props.logoutDev(props.history);
         window.location.href = "/";
     };
 
-    render() {
-        const { email } = this.props.auth.dev;
+    const { email } = props.auth.dev;
 
-        return (
-            <AppBar
-                position="static"
-                className="Navbar"
-                ref={(node) => (this.node = node)}
-            >
-                <Toolbar className="Toolbar">
-                    <Grid item xs={2}>
-                        <IconButton
-                            edge="start"
-                            color="inherit"
-                            aria-label="menu"
-                        >
-                            <MenuIcon fontSize="large" />
-                        </IconButton>
-                    </Grid>
-                    <Grid item xs={5}>
-                        <Link className="Navbar_title" to="/">
-                            <Typography variant="h6">ShadowSpark UI</Typography>{" "}
-                        </Link>
-                    </Grid>
-                    <Grid className="Profile"item xs={5}>
+    return (
+        <AppBar position="static" className="Navbar">
+            <Toolbar className="Toolbar">
+                <Grid item xs={2}></Grid>
+                <Grid item xs={5}>
+                    <Link className="Navbar_title" to="/">
+                        <Typography variant="h6">ShadowSpark UI</Typography>{" "}
+                    </Link>
+                </Grid>
+                <Grid className="Profile" item xs={5}>
                     <Typography className="Profile_email">{email}</Typography>{" "}
-                    <Button onClick={this.showMenu}>
-                        <AccountCircle className="AccountCircle" fontSize="large" />
+                    <Button>
+                        <AccountCircle
+                            className="AccountCircle"
+                            aria-controls="customized-menu"
+                            aria-haspopup="true"
+                            fontSize="large"
+                            onClick={handleClick}
+                        />
                     </Button>
-                    {this.state.showMenu ? (
-                        <div
-                            className="dropdown"
-                            ref={(element) => {
-                                this.dropdownMenu = element;
-                            }}
-                        >
-                            <Button className="dropdown_button" variant="outlined" color="primary">
-                                {" "}
-                                <Link to="/home">Home</Link>{" "}
-                            </Button>
-                            <Button className="dropdown_button" variant="outlined" color="primary" onClick={this.onLogoutClick}>
-                                Sign-Out
-                            </Button>
-                        </div>
-                    ) : null}
-                    </Grid>
-                </Toolbar>
-            </AppBar>
-        );
-    }
-}
+                    <StyledMenu
+                        id="customized-menu"
+                        anchorEl={anchorEl}
+                        keepMounted
+                        open={Boolean(anchorEl)}
+                        onClose={handleClose}
+                    >
+                        <StyledMenuItem button component={Link} to="/home">
+                            <ListItemIcon>
+                                <HomeIcon fontSize="large" />
+                            </ListItemIcon>
+                            <ListItemText
+                                primary="Home"
+                            />
+                        </StyledMenuItem>
+                        <StyledMenuItem>
+                            <ListItemIcon>
+                                <ExitToAppIcon fontSize="large" />
+                            </ListItemIcon>
+                            <ListItemText
+                                primary="Sign-Out"
+                                onClick={onLogoutClick}
+                            />
+                        </StyledMenuItem>
+                    </StyledMenu>
+                </Grid>
+            </Toolbar>
+        </AppBar>
+    );
+};
 
 const mapStateToProps = (state) => ({
     auth: state.auth,
