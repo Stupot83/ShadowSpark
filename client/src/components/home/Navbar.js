@@ -20,7 +20,7 @@ import "../../Navbar.scss";
 const StyledMenu = withStyles({
     paper: {
         border: "1px solid #d3d4d5",
-        marginTop: "14px",
+        marginTop: "8px",
     },
 })((props) => (
     <Menu
@@ -73,19 +73,15 @@ const Navbar = (props) => {
             <Toolbar className="Toolbar">
                 <Grid item xs={2}></Grid>
                 <Grid item xs={5}>
-                    <Link className="Navbar_title" to="/">
-                        <Typography variant="h6">ShadowSpark UI</Typography>{" "}
-                    </Link>
+                    <Typography variant="h6" className="Navbar_title" to="/" button component={Link} to="/home">ShadowSpark UI</Typography>{" "}
                 </Grid>
                 <Grid className="Profile" item xs={5}>
-                    <Typography className="Profile_email">{email}</Typography>{" "}
-                    <Button>
+                    <Button onClick={handleClick}>
                         <AccountCircle
                             className="AccountCircle"
                             aria-controls="customized-menu"
                             aria-haspopup="true"
                             fontSize="large"
-                            onClick={handleClick}
                         />
                     </Button>
                     <StyledMenu
@@ -113,6 +109,7 @@ const Navbar = (props) => {
                             />
                         </StyledMenuItem>
                     </StyledMenu>
+                    <Typography className="Profile_email">{email}</Typography>{" "}
                 </Grid>
             </Toolbar>
         </AppBar>
