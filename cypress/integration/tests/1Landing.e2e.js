@@ -6,6 +6,10 @@ describe('When the Landing page is loaded', () => {
     cy.visit("/");
   });
 
+  it("then the url is correct", () => {
+    landingPage.checkLandingUrl();
+});
+
   it("then the header is set properly", () => {
     landingPage.headerIsVisible();
   });

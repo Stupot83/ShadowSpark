@@ -6,6 +6,10 @@ const logo = "#logo";
 const registerButton = "#register";
 const loginButton = "#login";
 
+function checkLandingUrl() {
+    cy.url().should('eq', 'http://localhost:3000/'); 
+}
+
 function headerIsVisible() {
     elementIsVisible(header);
 }
@@ -46,7 +50,12 @@ function clickRegisterButton() {
     clickElement(registerButton);
 }
 
+function clickLoginButton() {
+    clickElement(loginButton);
+}
+
 module.exports = {
+    checkLandingUrl,
     headerIsVisible,
     checkHeaderText,
     subHeaderIsVisible,
@@ -56,5 +65,6 @@ module.exports = {
     checkRegisterButtonText,
     checkLoginButton,
     checkLoginButtonText,
-    clickRegisterButton
+    clickRegisterButton,
+    clickLoginButton
 };
