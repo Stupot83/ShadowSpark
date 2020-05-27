@@ -13,6 +13,10 @@ const emailInput = "#email";
 const passwordInput = "#password";
 const confirmPasswordInput = "#password2";
 
+function checkRegisterUrl() {
+    cy.url().should('eq', 'http://localhost:3000/register'); 
+}
+
 function formHeaderIsVisible() {
     elementIsVisible(formHeader);
 }
@@ -78,11 +82,11 @@ function checkLoginLinkText() {
 }
 
 function fillNameField() {
-    cy.get(nameInput).type("Dave");
+    cy.get(nameInput).type("dave");
 }
 
 function fillEmailField() {
-    cy.get(emailInput).type("Dave@Dave.com");
+    cy.get(emailInput).type("dave@dave.com");
 }
 
 function fillPasswordField() {
@@ -98,6 +102,7 @@ function submitRegistrationForm() {
 }
 
 module.exports = {
+    checkRegisterUrl,
     formHeaderIsVisible,
     checkFormHeaderText,
     nameHeaderIsVisible,

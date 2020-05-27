@@ -55,7 +55,7 @@ class Login extends Component {
 
         return (
             <div className="login-container">
-                <div className="login-header">Login</div>
+                <div id="formHeader" className="login-header">Login</div>
 
                 <form
                     className="login-form"
@@ -64,7 +64,7 @@ class Login extends Component {
                 >
                     <div className="login-section">
                         <label>
-                            <div className="login-label">Email</div>
+                            <div id="emailHeader" className="login-label">Email</div>
                             <input
                                 onChange={this.onChange}
                                 value={this.state.email}
@@ -80,7 +80,7 @@ class Login extends Component {
 
                     <div className="login-section">
                         <label>
-                            <div className="login-label">Password</div>
+                            <div id="passwordHeader" className="login-label">Password</div>
                             <input
                                 onChange={this.onChange}
                                 value={this.state.password}
@@ -99,14 +99,15 @@ class Login extends Component {
                             type="submit"
                             variant="contained"
                             color="primary"
+                            id="signInButton"
                         >
                             Sign-In
                         </Button>
                     </div>
                     <div className="registration-bottom">
-                        <p className="grey-text text-darken-1">
+                        <p id="redirectMessage" className="grey-text text-darken-1">
                             Don't have an account?{" "}
-                            <Link to="/register">Register</Link>
+                            <Link id="registerLink" to="/register">Register</Link>
                         </p>
                     </div>
                 </form>

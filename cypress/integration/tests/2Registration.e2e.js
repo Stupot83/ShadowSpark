@@ -8,6 +8,10 @@ describe('When the Registration page is loaded', () => {
         landingPage.clickRegisterButton();
     });
 
+    it("then the url is correct", () => {
+        registrationPage.checkRegisterUrl();
+    });
+
     it("then the form header is set properly", () => {
         registrationPage.formHeaderIsVisible();
     });
@@ -93,7 +97,7 @@ describe('When the Registration page is loaded', () => {
 
         describe('When the form is submitted to register the dev', () => {
             
-            it("the form is submitted, and the user is redirected to the home page", () => {
+            it("the form is submitted, and the user is redirected to the login page", () => {
                 registrationPage.submitRegistrationForm();
             });
 
