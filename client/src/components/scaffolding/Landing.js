@@ -41,13 +41,13 @@ export default function Landing() {
             <Container className="Landing_container">
                 <Grid container spacing={3}>
                     <Grid className={classes.titleGrid} item xs={12}>
-                        <h1>ShadowSpark UI</h1>
+                        <h1 id="header">ShadowSpark UI</h1>
                     </Grid>
                     <Grid className={classes.subTitleGrid} item xs={12}>
-                        <h4>Keeping Work Simples...</h4>
+                        <h4 id="subHeader">Keeping Work Simples...</h4>
                     </Grid>
                     <Grid className={classes.imageGrid} item xs={12}>
-                        <img className="Logo" src={Logo} alt="Logo" />
+                        <img id="logo" className="Logo" src={Logo} alt="Logo" />
                     </Grid>
                     <Grid className={classes.buttonGrid} item xs={3}>
                         <Box className="Button_box" variant="outlined">
@@ -55,12 +55,12 @@ export default function Landing() {
                     </Grid>
                     <Grid className={classes.buttonGrid} item xs={3}>
                         <Box className="Button_box" variant="outlined">
-                            <Button component={Link} className="Landing_button" variant="contained" size="large" color="secondary" to="/register">Register</Button>
+                            <Button component={Link} id="register" className="Landing_button" variant="contained" size="large" color="secondary" to="/register">Register</Button>
                         </Box>
                     </Grid>
                     <Grid className={classes.buttonGrid} item xs={3}>
                         <Box className="Button_box" variant="outlined">
-                            <Button component={Link} className="Landing_button" variant="contained" size="large" color="primary" to="/login">Login</Button>
+                            <Button component={Link} id="login" className="Landing_button" variant="contained" size="large" color="primary" to="/login">Login</Button>
                         </Box>
                     </Grid>
                     <Grid className={classes.buttonGrid} item xs={3}>
