@@ -1,6 +1,5 @@
 import * as landingPage from "../../pageObjects/landing-page";
 
-
 describe('When the Landing page is loaded', () => {
 
   before(() => {
@@ -11,24 +10,36 @@ describe('When the Landing page is loaded', () => {
     landingPage.headerIsVisible();
   });
 
+  it('the header should contain the correct text', () => {
+    landingPage.checkHeaderText();
+  });
+
   it("then the subHeader is set properly", () => {
     landingPage.subHeaderIsVisible();
   });
 
-  it('should have a header', () => {
-    landingPage.checkHeaderText();
+  it('the subHeader should contain the correct text', () => {
+    landingPage.checkSubHeaderText();
   });
 
-  it('should have a sub-header', () => {
-    landingPage.checkSubHeaderText();
+  it("the logo should be set properly", () => {
+    landingPage.logoIsVisible();
   });
 
   it("should have a register button", () => {
     landingPage.checkRegisterButton();
   });
 
-  it("should have a login button", () => {
+  it('the register button should contain the correct text', () => {
+    landingPage.checkRegisterButtonText();
+  });
 
+  it("should have a login button", () => {
+    landingPage.checkLoginButton();
+  });
+
+  it('the login button should contain the correct text', () => {
+    landingPage.checkLoginButtonText();
   });
 
 });
