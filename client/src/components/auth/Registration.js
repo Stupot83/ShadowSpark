@@ -57,7 +57,7 @@ class Registration extends Component {
 
         return (
             <div className="registration-container">
-                <div className="registration-header">Register</div>
+                <div id="formHeader" className="registration-header">Register</div>
 
                 <form
                     className="registration-form"
@@ -66,7 +66,7 @@ class Registration extends Component {
                 >
                     <div className="registration-section">
                         <label>
-                            <div className="registration-label">Name</div>
+                            <div id="nameHeader" className="registration-label">Name</div>
                             <input
                                 onChange={this.onChange}
                                 value={this.state.name}
@@ -84,7 +84,7 @@ class Registration extends Component {
 
                     <div className="registration-section">
                         <label>
-                            <div className="registration-label">Email</div>
+                            <div id="emailHeader" className="registration-label">Email</div>
                             <input
                                 onChange={this.onChange}
                                 value={this.state.email}
@@ -102,7 +102,7 @@ class Registration extends Component {
 
                     <div className="registration-section">
                         <label>
-                            <div className="registration-label">Password</div>
+                            <div id="passwordHeader" className="registration-label">Password</div>
                             <input
                                 onChange={this.onChange}
                                 value={this.state.password}
@@ -119,7 +119,7 @@ class Registration extends Component {
 
                     <div className="registration-section">
                         <label>
-                            <div className="registration-label">
+                            <div id="confirmPasswordHeader" className="registration-label">
                                 Confirm Password
                             </div>
                             <input
@@ -138,6 +138,7 @@ class Registration extends Component {
 
                     <div className="registration-button">
                         <Button
+                            id="signUpButton"
                             type="submit"
                             variant="contained"
                             color="primary"
@@ -146,9 +147,9 @@ class Registration extends Component {
                         </Button>
                     </div>
                     <div className="registration-bottom">
-                        <p>
+                        <p id="redirectMessage">
                             Already have an account?{" "}
-                            <Link to="/login">Login</Link>
+                            <Link id="loginLink" to="/login">Login</Link>
                         </p>
                     </div>
                 </form>

@@ -1,4 +1,4 @@
-import { elementIsVisible} from "../helpers/helpers";
+import { elementIsVisible, clickElement } from "../helpers/helpers";
 
 const header = "#header";
 const subHeader = "#subHeader";
@@ -30,8 +30,20 @@ function checkRegisterButton() {
     elementIsVisible(registerButton);
 }
 
+function checkRegisterButtonText() {
+    cy.get(registerButton).should('have.text', 'Register');
+}
+
 function checkLoginButton() {
     elementIsVisible(loginButton);
+}
+
+function checkLoginButtonText() {
+    cy.get(loginButton).should('have.text', 'Login');
+}
+
+function clickRegisterButton() {
+    clickElement(registerButton);
 }
 
 module.exports = {
@@ -41,5 +53,8 @@ module.exports = {
     checkSubHeaderText,
     logoIsVisible,
     checkRegisterButton,
+    checkRegisterButtonText,
     checkLoginButton,
+    checkLoginButtonText,
+    clickRegisterButton
 };
