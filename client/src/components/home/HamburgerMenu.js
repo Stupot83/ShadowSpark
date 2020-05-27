@@ -99,7 +99,7 @@ const HamburgerMenu = (props) => {
                 }}
             >
                 <div className={classes.drawerHeader}>
-                <img className="Logo" src={Logo} alt="Logo" />
+                <img className="Logo_small" src={Logo} alt="Logo" />
                     <IconButton onClick={handleDrawerClose}>
                         <ChevronLeftIcon fontSize="large" />
                     </IconButton>

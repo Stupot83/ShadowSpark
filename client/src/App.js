@@ -9,9 +9,7 @@ import Landing from "./components/scaffolding/Landing";
 import Registration from "./components/auth/Registration";
 import Login from "./components/auth/Login";
 import ProtectedRoute from "./components/protected-route/protectedRoute";
-import Navbar from "./components/home/Navbar";
 import Home from "./components/home/Home";
-import HamburgerMenu from "./components/home/HamburgerMenu";
 
 // Check for token to keep the Dev logged in
 if (localStorage.jwtToken) {

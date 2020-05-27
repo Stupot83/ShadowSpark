@@ -2,7 +2,13 @@
     color: white;
 }
 
-.Logo {
+.Logo_small {
     margin-right: 60px;
     width: 50%;
+}
+
+@media (max-width: 600px) {
+    .Hamburger_icon {
+        margin-top: 8px;
+    }
 }

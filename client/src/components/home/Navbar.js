@@ -72,7 +72,7 @@ const Navbar = (props) => {
         <AppBar position="static" className="Navbar">
             <Toolbar className="Toolbar">
                 <Grid item xs={2}></Grid>
-                <Grid item xs={5}>
+                <Grid className="Navbar_title_grid" item xs={5}>
                     <Typography variant="h6" className="Navbar_title" to="/" button component={Link} to="/home">ShadowSpark UI</Typography>{" "}
                 </Grid>
                 <Grid className="Profile" item xs={5}>
