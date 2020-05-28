@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import setAuthenticationToken from "./config/setAuthenticationToken";
@@ -30,21 +30,23 @@ if (localStorage.jwtToken) {
     }
 }
 
-function App() {
-    return (
-        <Provider store={reduxStore}>
-            <Router>
-                <div className="App">
-                    <Switch>
-                        <Route exact path="/" component={Landing} />
-                        <Route exact path="/register" component={Registration} />
-                        <Route exact path="/login" component={Login} />
-                        <ProtectedRoute exact path="/home" component={Home} />
-                    </Switch>
-                </div>
-            </Router>
-        </Provider>
-    );
+class App extends Component {
+    render() {
+        return (
+            <Provider store={reduxStore}>
+                <Router>
+                    <div className="App">
+                        <Switch>
+                            <Route exact path="/" component={Landing} />
+                            <Route exact path="/register" component={Registration} />
+                            <Route exact path="/login" component={Login} />
+                            <ProtectedRoute exact path="/home" component={Home} />
+                        </Switch>
+                    </div>
+                </Router>
+            </Provider>
+        );
+    }
 }
 
 export default App;
