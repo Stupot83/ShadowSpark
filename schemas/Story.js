@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 // Create the jiraStory Schema
-const JirastorySchema = new Schema({
+const StorySchema = new Schema({
   name: {
     type: String,
     required: true
@@ -27,4 +27,4 @@ const JirastorySchema = new Schema({
   }
 });
 
-module.exports = Jirastory = mongoose.model("jirastories", JirastorySchema);
+module.exports = Story = mongoose.model("stories", StorySchema);
