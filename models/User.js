@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-// Create the Devs Schema
-const DevSchema = new Schema({
+// Create the User Schema
+const UserSchema = new Schema({
   name: {
     type: String,
     required: true
@@ -21,4 +21,4 @@ const DevSchema = new Schema({
   }
 });
 
-module.exports = Dev = mongoose.model("devs", DevSchema);
+module.exports = User = mongoose.model("users", UserSchema);

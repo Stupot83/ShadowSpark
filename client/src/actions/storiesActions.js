@@ -1,5 +1,4 @@
 import axios from "axios";
-
 import {
   CREATE_STORY,
   UPDATE_STORY,
@@ -26,7 +25,7 @@ export const createStory = storyData => dispatch => {
 // Update Story
 export const updateStory = storyData => dispatch => {
   axios
-    .patch("/api/stories/update", storyData)
+    .put("/api/stories/update", storyData)
     .then(res =>
       dispatch({
         type: UPDATE_STORY,
@@ -69,7 +68,7 @@ export const getStory = id => dispatch => {
     );
 };
 
-// Get all Stories for one dev
+// Get all Stories for User
 export const getStories = () => dispatch => {
   dispatch(setStoriesLoading());
   axios

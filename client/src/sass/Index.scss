@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+/* Remove padding and margin and set font */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Roboto", sans-serif;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}

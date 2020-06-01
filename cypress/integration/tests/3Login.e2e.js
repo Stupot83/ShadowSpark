@@ -70,7 +70,7 @@ describe('When the Login page is loaded', () => {
             loginPage.fillPasswordField();
         });
 
-        describe('When the form is submitted to login the dev', () => {
+        describe('When the form is submitted to login the user', () => {
             
             it("the form is submitted, and the user is redirected to the home page", () => {
                 loginPage.submitLoginForm();

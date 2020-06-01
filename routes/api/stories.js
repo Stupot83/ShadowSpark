@@ -3,78 +3,79 @@ const router = express.Router();
 const passport = require("passport");
 
 // Load Story schema
-const Story = require("../../schemas/Story");
+const Story = require("../../models/Story");
 
-// GET api/stories - Get all stories for a specific dev
+// Get all stories for a specific user
 router.get(
   "/",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     let storiesArr = [];
 
-    // Get Team Member stories
+    // Member stories
     await Story.find({})
       .then(stories => {
         stories.map(story => {
           story.teamMembers &&
-            story.teamMembers.map(dev => {
-              if (dev.email == req.dev.email) {
+            story.teamMembers.map(member => {
+              if (member.email == req.user.email) {
                 storiesArr.push(story);
               }
-            })
+            });
         });
       })
       .catch(err => console.log(err));
 
-    const CREATOR = {
-      id: req.dev.id,
-      name: req.dev.name,
-      email: req.dev.email
+    const OWNER = {
+      id: req.user.id,
+      name: req.user.name,
+      email: req.user.email
     };
 
-    // Get creator stories
-    await Story.find({ creator: CREATOR })
+    // Combine with owner stories
+    await Story.find({ owner: OWNER })
       .then(stories => {
-        let resultArr = [...stories, ...storiesArr];
-        res.json(resultArr);
+        let finalArr = [...stories, ...storiesArr];
+        res.json(finalArr);
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   }
 );
 
-// GET api/stories/:id - Get specific story by id
+// Get specific story by id
 router.get(
   "/:id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     let id = req.params.id;
 
-    story.findById(id).then(story => res.json(story));
+    Story.findById(id).then(story => res.json(story));
   }
 );
 
-// POST api/stories/create - Create a new story
+// Create a new story
 router.post(
   "/create",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
-    const CREATOR = {
-      id: req.dev.id,
-      name: req.dev.name,
-      email: req.dev.email
+    const OWNER = {
+      id: req.user.id,
+      name: req.user.name,
+      email: req.user.email
     };
 
     const NEW_STORY = await new Story({
-      creator: CREATOR,
+      owner: OWNER,
       name: req.body.storyName,
       teamMembers: req.body.members
     });
 
-    NEW_STORY.save().then(story => res.json(story));
+    NEW_STORY.save().then(story => res.json(story)
+    );
   }
 );
 
-// PATCH api/stories/update - Update an existing story
+// Update an existing story
 router.patch(
   "/update",
   passport.authenticate("jwt", { session: false }),
@@ -96,12 +97,12 @@ router.patch(
   }
 );
 
-// DELETE api/stories/delete/:id - Delete an existing story
+// Delete an existing story
 router.delete(
   "/delete/:id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    story.findById(req.params.id).then(story => {
+    Story.findById(req.params.id).then(story => {
       story.remove().then(() => res.json({ success: true }));
     });
   }

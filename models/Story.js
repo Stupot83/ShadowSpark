@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-// Create the jiraStory Schema
+// Create the Story Schema
 const StorySchema = new Schema({
   name: {
     type: String,
     required: true
   },
-  creator: {
+  owner: {
     type: Object,
     required: true
   },
