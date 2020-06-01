@@ -1,0 +1,29 @@
+.Story_content_container {
+  flex: 1 1 auto;
+  margin: 4rem;
+  border: 1px solid lightgray;
+  border-radius: 30px !important;
+  background-color: ghostwhite;
+
+  .Story_content_header {
+    font-size: 24px;
+    color: black;
+    text-align: center;
+    padding: 30px;
+    background-color: ghostwhite;
+  }
+
+  .Edit_story_button_container {
+    padding-top: 20px;
+    text-align: center;
+    background-color: ghostwhite;
+
+    .Edit_story_button {
+      min-width: 115px;
+    }
+  }
+}
+
+.Loading_container {
+  margin-bottom: 4rem;
+}

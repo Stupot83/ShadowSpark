@@ -1,0 +1,14 @@
+.Hamburger_icon {
+  color: white;
+}
+
+.Logo_menu {
+  margin-right: 100px;
+  width: 40%;
+}
+
+@media (max-width: 599px) {
+  .Hamburger_icon {
+    margin-top: 8px;
+  }
+}

@@ -1,0 +1,51 @@
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+
+  .Toolbar {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    display: flex;
+    align-items: center;
+
+    .Navbar_title_grid {
+      text-align: center;
+      margin-top: 7px;
+
+      .Navbar_title {
+        color: white;
+        text-decoration: none;
+      }
+    }
+
+    .Profile {
+      display: flex;
+
+      .Profile_email {
+        margin-top: 0.7rem;
+        margin-right: 2rem;
+      }
+
+      .AccountCircle {
+        color: white;
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .Navbar_title_grid {
+    margin-top: 0px !important;
+    padding-left: 0px;
+  }
+
+  .Profile {
+    .Profile_email {
+      display: none;
+    }
+
+    .AccountCircle {
+      display: none;
+    }
+  }
+}
