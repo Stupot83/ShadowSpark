@@ -11,7 +11,7 @@ router.get(
   (req, res) => {
     let id = req.params.id;
 
-    Todo.find({ story: id }).then((todos) => res.json(todos));
+    Todo.find({ story: id }).then(todos => res.json(todos));
   }
 );
 
@@ -27,8 +27,8 @@ router.post(
     });
 
     NEW_TODO.save()
-      .then((todo) => res.json(todo))
-      .catch((err) => console.log(err));
+      .then(todo => res.json(todo))
+      .catch(err => console.log(err));
   }
 );
 
@@ -37,7 +37,7 @@ router.delete(
   "/delete/:id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    Todo.findById(req.params.id).then((todo) => {
+    Todo.findById(req.params.id).then(todo => {
       todo.remove().then(() => res.json({ success: true }));
     });
   }
@@ -51,17 +51,17 @@ router.patch(
     let todoFields = {};
 
     todoFields.todoName = req.body.todoName;
-    taskFields.assignee = req.body.assignee;
+    todoFields.assignee = req.body.assignee;
 
     Todo.findOneAndUpdate(
       { _id: req.body.id },
       { $set: todoFields },
       { new: true }
     )
-      .then((todo) => {
+      .then(todo => {
         res.json(todo);
       })
-      .catch((err) => console.log(err));
+      .catch(err => console.log(err));
   }
 );
 
