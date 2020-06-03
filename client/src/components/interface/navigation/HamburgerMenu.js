@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { logoutUser } from "../../../actions/authenticationActions";
 import clsx from "clsx";
@@ -72,6 +72,13 @@ const HamburgerMenu = props => {
     window.location.href = "/";
   };
 
+  const redirectToHome = e => {
+    if (props.auth.isAuthenticated) {
+      props.history.push("/display");
+      window.location.href = "/display";
+    }
+  };
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -103,7 +110,7 @@ const HamburgerMenu = props => {
         </div>
         <Divider />
         <List>
-          <ListItem button component={Link} to="/display">
+          <ListItem button onClick={redirectToHome}>
             <ListItemIcon>
               <HomeIcon fontSize="large" />
             </ListItemIcon>

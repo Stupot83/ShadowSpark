@@ -158,3 +158,101 @@
     height: 625px;
   }
 }
+
+.Todopopup_container {
+  max-width: 500px !important;
+  background: white;
+  border: 1px solid gray;
+  border-radius: 30px;
+  animation: fade-in 0.25s;
+  transform: scale(1);
+  padding: 2rem;
+  visibility: visible;
+  position: fixed;
+  top: 18%;
+  height: 450px;
+  z-index: 1000;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+
+  .Todopopup_header_container {
+    display: block;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    .Todopopup_icon {
+      float: right;
+      margin-top: 4px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .Todopopup_header {
+      text-align: center;
+    }
+  }
+
+  .Todo_form_container {
+    width: 100%;
+
+    .Todopopup_name_container {
+      margin-bottom: 1rem;
+
+      .Todopopup_form_input {
+        background-color: white;
+        border-bottom: 1px solid #3f51b5;
+        height: 40px;
+        width: 100%;
+        line-height: 1.5em;
+        outline: 0;
+        transition: all 0.25s ease 0s;
+        font-size: 16px;
+        padding: 0 1rem;
+
+        &:hover {
+          transition: all 0.25s ease 0s;
+          background-color: #e6e6e6;
+        }
+
+        &:focus {
+          transition: all 0.25s ease 0s;
+          background-color: #e6e6e6;
+        }
+      }
+    }
+
+    .Todopopup_form_label {
+      width: 100%;
+      padding-right: 2rem;
+      margin-bottom: 1.75rem;
+      margin-top: 1.75rem;
+      font-size: 14px;
+      color: darkGray;
+      display: block;
+    }
+
+    .Todopopup_form_select {
+      width: 100%;
+      padding-left: 20px;
+      outline: none;
+    }
+
+    .Todopopup_button_container {
+      display: flex;
+
+      .Todopopup_form_button {
+        margin-top: 4.75rem;
+        min-width: 115px;
+        text-align: center;
+      }
+    }
+
+    .Todopopup_form_button {
+      margin-top: 4.75rem;
+      min-width: 115px;
+      text-align: center;
+    }
+  }
+}

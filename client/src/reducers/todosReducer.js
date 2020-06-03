@@ -18,12 +18,14 @@ export default function (state = initialState, action) {
         ...state,
         todos: [action.payload, ...state.todos]
       };
+
     case GET_TODOS:
       return {
         ...state,
         todos: action.payload,
         todosLoading: false
       };
+
     case UPDATE_TODO:
       let index = state.todos.findIndex(
         todo => todo._id === action.payload._id
@@ -35,16 +37,19 @@ export default function (state = initialState, action) {
         ...state,
         todos: [action.payload, ...state.todos]
       };
+
     case DELETE_TODO:
       return {
         ...state,
         todos: state.todos.filter(todo => todo._id !== action.payload)
       };
+
     case TODOS_LOADING:
       return {
         ...state,
         todosLoading: true
       };
+      
     default:
       return state;
   }

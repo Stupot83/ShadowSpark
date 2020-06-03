@@ -25,7 +25,7 @@ export default function (state = initialState, action) {
 
     case UPDATE_STORY:
       let index = state.stories.findIndex(
-        (story) => story._id === action.payload._id
+        story => story._id === action.payload._id
       );
 
       state.stories.splice(index, 1);
@@ -38,7 +38,7 @@ export default function (state = initialState, action) {
     case DELETE_STORY:
       return {
         ...state,
-        stories: state.stories.filter((story) => story._id !== action.payload)
+        stories: state.stories.filter(story => story._id !== action.payload)
       };
 
     case GET_STORY:
@@ -66,6 +66,7 @@ export default function (state = initialState, action) {
         ...state,
         storiesLoading: true
       };
+
     default:
       return state;
   }
