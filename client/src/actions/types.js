@@ -11,3 +11,10 @@ export const GET_STORY = "GET_STORY";
 export const STORY_LOADING = "STORY_LOADING";
 export const GET_STORIES = "GET_STORIES";
 export const STORIES_LOADING = "STORIES_LOADING";
+
+// Todo actions
+export const CREATE_TODO = "CREATE_TODO";
+export const UPDATE_TODO = "UPDATE_TODO";
+export const DELETE_TODO = "DELETE_TODO";
+export const GET_TODOS = "GET_TODOS";
+export const TODOS_LOADING = "TODOS_LOADING";

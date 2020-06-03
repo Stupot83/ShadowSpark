@@ -25,7 +25,7 @@ export const createStory = storyData => dispatch => {
 // Update Story
 export const updateStory = storyData => dispatch => {
   axios
-    .put("/api/stories/update", storyData)
+    .patch("/api/stories/update", storyData)
     .then(res =>
       dispatch({
         type: UPDATE_STORY,

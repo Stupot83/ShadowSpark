@@ -14,7 +14,7 @@ export const createTodo = todoData => dispatch => {
     .post("/api/todos/create", todoData)
     .then(res =>
       dispatch({
-        type: CREATE_TASK,
+        type: CREATE_TODO,
         payload: res.data
       })
     )

@@ -18,11 +18,11 @@ class Display extends Component {
     owner: {}
   };
 
-  toggleModal = e => {
+  togglePopup = e => {
     this.setState({ popup: !this.state.popup, edit: false });
   };
 
-  toggleEditModal = (name, members, id, owner, e) => {
+  toggleEditPopup = (name, members, id, owner, e) => {
     e.stopPropagation();
 
     this.setState({
@@ -50,7 +50,7 @@ class Display extends Component {
             variant="contained"
             color="secondary"
             className="Story_option_button"
-            onClick={this.toggleEditModal.bind(
+            onClick={this.toggleEditPopup.bind(
               this,
               story.name,
               story.teamMembers,
@@ -84,14 +84,18 @@ class Display extends Component {
               color="primary"
               size="large"
               className="Create_story_button"
-              onClick={this.toggleModal}
+              onClick={this.togglePopup}
             >
               Create Story
             </Button>
           </Grid>
-          <div className="Popup_area">
+          <Grid container
+            spacing={0}
+            direction="column"
+            alignItems="center"
+            justify="center">
             <Popup
-              onClose={this.toggleModal}
+              onClose={this.togglePopup}
               popup={this.state.popup}
               edit={this.state.edit}
               name={this.state.name}
@@ -99,7 +103,7 @@ class Display extends Component {
               id={this.state.id}
               owner={this.state.owner}
             />
-          </div>
+          </Grid>
           <Grid
             container
             alignItems="center"
@@ -132,14 +136,18 @@ class Display extends Component {
                 color="primary"
                 size="large"
                 className="Create_story_button"
-                onClick={this.toggleModal}
+                onClick={this.togglePopup}
               >
                 Create Story
               </Button>
             </Grid>
-            <div className="Popup_area">
-              <Popup onClose={this.toggleModal} popup={this.state.popup} />
-            </div>
+            <Grid container
+              spacing={0}
+              direction="column"
+              alignItems="center"
+              justify="center">
+              <Popup onClose={this.togglePopup} popup={this.state.popup} />
+            </Grid>
           </Grid>
         </>
       );

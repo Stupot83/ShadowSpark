@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { logoutUser } from "../../../actions/authenticationActions";
 import AppBar from "@material-ui/core/AppBar";
@@ -66,6 +66,13 @@ const Navbar = props => {
     window.location.href = "/";
   };
 
+  const redirectToHome = e => {
+    if (props.auth.isAuthenticated) {
+      props.history.push("/display");
+      window.location.href = "/display";
+    }
+  };
+
   const { email } = props.auth.user;
 
   return (
@@ -77,9 +84,8 @@ const Navbar = props => {
             <Typography
               variant="h6"
               className="Navbar_title"
-              button
-              component={Link}
-              to="/display"
+              button="true"
+              onClick={redirectToHome}
             >
               ShadowSpark UI
             </Typography>{" "}
@@ -100,7 +106,7 @@ const Navbar = props => {
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
-              <StyledMenuItem button component={Link} to="/display">
+              <StyledMenuItem button onClick={redirectToHome}>
                 <ListItemIcon>
                   <HomeIcon fontSize="large" />
                 </ListItemIcon>
