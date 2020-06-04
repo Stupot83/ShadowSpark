@@ -2,13 +2,58 @@
   color: white;
 }
 
-.Logo_menu {
-  margin-right: 100px;
-  width: 40%;
+.MuiDrawer-paper {
+  background-color: #ffffff;
+  background-image: url("https://www.transparenttextures.com/patterns/diagonal-striped-brick.png");
+
+  .Logo_menu {
+    margin-right: 70px;
+    width: 40%;
+  }
+
+  .Chevron_icon {
+    color: black;
+  }
+
+  .Hamburger_list_icon {
+    color: black;
+    font-size: 60px;
+  }
+
+  .Hamburger_list_text {
+    span {
+      color: black;
+      font-size: 24px;
+      margin-left: 85px;
+    }
+  }
+
+  .Hamburger_stories_list {
+    text-align: center;
+  }
 }
 
 @media (max-width: 599px) {
   .Hamburger_icon {
     margin-top: 8px;
+  }
+}
+
+@media (max-width: 800px) {
+  .MuiDrawer-paper {
+    width: 500px !important;
+
+    .Logo_menu {
+      margin-right: 90px;
+      width: 40%;
+    }
+
+    .Hamburger_list_text {
+      span {
+        color: black;
+        font-size: 24px;
+        margin-left: 135px;
+      }
+    }
   }
 }

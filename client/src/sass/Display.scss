@@ -9,12 +9,14 @@
     font-size: 24px;
     color: black;
     text-align: center;
-    padding: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 60px;
     background-color: ghostwhite;
   }
 
   .Create_story_button_container {
-    padding-top: 20px;
+    padding-top: 40px;
     text-align: center;
     background-color: ghostwhite;
 
@@ -24,7 +26,10 @@
   }
 
   .Stories_container {
-    padding: 30px;
+    padding-bottom: 30px;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-top: 0px;
     display: flex;
     flex-wrap: wrap;
     background-color: ghostwhite;

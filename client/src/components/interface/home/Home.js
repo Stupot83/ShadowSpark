@@ -7,6 +7,8 @@ import Loading from "./loading/Loading";
 import Display from "./display/Display";
 import Story from "./story/Story";
 import Todos from "./todo/Todos";
+import Navbar from "../navigation/Navbar";
+import HamburgerMenu from "../navigation/HamburgerMenu";
 import "../../../../src/sass/Home.scss";
 
 class Home extends Component {
@@ -23,39 +25,41 @@ class Home extends Component {
       displayContent = <Loading />;
     } else if (stories.length > 0) {
       displayContent = (
-          <div className="Home_content_container">
-            <Switch>
-              <Route
-                exact
-                path="/display"
-                stories={stories}
-                component={Display}
-              />
-              <Route
-                exact
-                path="/todos"
-                stories={stories}
-                component={Todos}
-              />
-              <Route exact path="/stories/:story" component={Story} />
-            </Switch>
-          </div>
+        <div className="Home_content_container">
+          <Switch>
+            <Route
+              exact
+              path="/display"
+              stories={stories}
+              component={Display}
+            />
+            <Route
+              exact
+              path="/todos"
+              stories={stories}
+              component={Todos}
+            />
+            <Route exact path="/stories/:story" component={Story} />
+          </Switch>
+        </div>
       );
     } else {
       displayContent = (
-          <div className="Home_content_container"> 
-            <Switch>
-              <Route exact path="/display"
-                stories={[]}
-                component={Display} />
-              <Route exact path="/todos" component={Todos} />
-            </Switch>
-          </div>
+        <div className="Home_content_container">
+          <Switch>
+            <Route exact path="/display"
+              stories={[]}
+              component={Display} />
+            <Route exact path="/todos" component={Todos} />
+          </Switch>
+        </div>
       );
     }
 
     return (
       <Router>
+        <Navbar />
+        <HamburgerMenu />
         <div className="Home_container">{displayContent}</div>
       </Router>
     );

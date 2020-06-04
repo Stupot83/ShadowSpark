@@ -36,8 +36,13 @@
 
 @media (max-width: 800px) {
   .Navbar_title_grid {
-    margin-top: 0px !important;
+    margin-top: 12px !important;
     padding-left: 0px;
+    margin-left: 40px !important;
+
+    .Navbar_title {
+      text-align: right;
+    }
   }
 
   .Profile {
