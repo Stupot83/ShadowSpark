@@ -40,10 +40,14 @@ const StyledMenu = withStyles({
 
 const StyledMenuItem = withStyles(theme => ({
   root: {
+    color: theme.palette.primary.dark,
+    "& .MuiListItemIcon-root": {
+      color: theme.palette.primary.dark
+    },
     "&:hover": {
       backgroundColor: theme.palette.action.hover,
       "& .MuiListItemIcon-root, & .MuiListItemText-primary": {
-        color: theme.palette.text.secondary
+        color: theme.palette.secondary.dark
       }
     }
   }

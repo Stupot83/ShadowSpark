@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { logoutUser } from "../../../actions/authenticationActions";
 import clsx from "clsx";
@@ -22,7 +22,7 @@ import AccountTreeIcon from "@material-ui/icons/AccountTree";
 import Logo from "../../../../src/images/logo-menu.png";
 import "../../../../src/sass/HamburgerMenu.scss";
 
-const drawerWidth = "500px";
+const drawerWidth = "400px";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -51,6 +51,9 @@ const useStyles = makeStyles(theme => ({
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
     justifyContent: "flex-end"
+  },
+  dividerColor: {
+    height: "10px"
   }
 }));
 
@@ -79,6 +82,14 @@ const HamburgerMenu = props => {
     }
   };
 
+  const { stories } = props.stories;
+
+  let storyData = stories.sort().map(story => (
+    <List className="Hamburger_stories_list" key={story._id}>
+      <Link to={`/stories/${story._id}`}>{story.name}</Link>
+    </List>
+  ));
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -105,45 +116,49 @@ const HamburgerMenu = props => {
         <div className={classes.drawerHeader}>
           <img className="Logo_menu" src={Logo} alt="Logo" />
           <IconButton onClick={handleDrawerClose}>
-            <ChevronLeftIcon fontSize="large" />
+            <ChevronLeftIcon fontSize="large" className="Chevron_icon" />
           </IconButton>
         </div>
-        <Divider />
+        <Divider classes={{ root: classes.dividerColor }} />
         <List>
           <ListItem button onClick={redirectToHome}>
             <ListItemIcon>
-              <HomeIcon fontSize="large" />
+              <HomeIcon className="Hamburger_list_icon" fontSize="large" />
             </ListItemIcon>
-            <ListItemText primary="Home" />
+            <ListItemText className="Hamburger_list_text" primary="Home" />
           </ListItem>
           <ListItem button onClick={onLogoutClick}>
             <ListItemIcon>
-              <ExitToAppIcon fontSize="large" />
+              <ExitToAppIcon className="Hamburger_list_icon" fontSize="large" />
             </ListItemIcon>
-            <ListItemText primary="Sign-out" />
+            <ListItemText className="Hamburger_list_text" primary="Sign-out" />
           </ListItem>
           <ListItem button>
             <ListItemIcon>
-              <SettingsBrightnessIcon fontSize="large" />
+              <SettingsBrightnessIcon className="Hamburger_list_icon" fontSize="large" />
             </ListItemIcon>
-            <ListItemText primary="Dark Mode" />
+            <ListItemText className="Hamburger_list_text" primary="Dark Mode" />
           </ListItem>
-          <Divider />
-          <ListItem button>
+          <Divider classes={{ root: classes.dividerColor }} />
+          <ListItem>
             <ListItemIcon>
-              <AccountTreeIcon fontSize="large" />
+              <AccountTreeIcon className="Hamburger_list_icon" fontSize="large" />
             </ListItemIcon>
-            <ListItemText primary="TODO" />
+            <ListItemText className="Hamburger_list_text" primary="Stories" />
+          </ListItem>
+          <ListItem>
+            <ListItemText>{storyData}</ListItemText>
           </ListItem>
         </List>
-        <Divider />
+        <Divider classes={{ root: classes.dividerColor }} />
       </Drawer>
     </div>
   );
 };
 
 const mapStateToProps = state => ({
-  auth: state.auth
+  auth: state.auth,
+  stories: state.stories
 });
 
 export default withRouter(
