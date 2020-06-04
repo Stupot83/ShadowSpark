@@ -8,6 +8,7 @@ import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
 import Grid from "@material-ui/core/Grid";
 import Checkbox from "@material-ui/core/Checkbox";
+import Pomodoro from "../pomodoro/Pomodoro";
 import "../../../../../src/sass/Display.scss";
 import "../../../../../src/sass/Story.scss";
 
@@ -24,7 +25,13 @@ class Story extends Component {
     todos: [],
     todoName: "",
     todoId: "",
-    assignee: ""
+    assignee: "",
+    restMinutes: 5,
+    workMinutes: 25,
+    seconds: 0,
+    break: false,
+    start: false,
+    interval: ""
   };
 
   togglePopup = (e) => {
@@ -95,6 +102,57 @@ class Story extends Component {
       this.props.history.push("/display");
       window.location.href = "/display";
     }
+  };
+
+  timer = () => {
+    this.setState({
+      seconds: this.state.seconds === 0 ? 59 : this.state.seconds - 1
+    });
+
+    if (this.state.break) {
+      this.setState({
+        restMinutes: this.state.seconds === 0 ? this.state.restMinutes - 1
+          : this.state.restMinutes === 5 ? 4 : this.state.restMinutes
+      });
+    }
+
+    if (this.state.restMinutes === -1) {
+      this.setState({
+        restMinutes: 5, break: false
+      });
+    }
+
+    else {
+      this.setState({
+        workMinutes: this.state.seconds === 0 ? this.state.workMinutes - 1
+          : this.state.workMinutes === 25 ? 24 : this.state.workMinutes
+      });
+
+      if (this.state.workMinutes === - 1) {
+        this.setState({
+          workMinutes: 25, break: true
+        });
+      }
+    }
+  };
+
+  startTimer = () => {
+    this.setState({
+      interval: setInterval(this.timer, 1000), start: !this.state.start
+    });
+  };
+
+  pauseTimer = () => {
+    this.setState(prevState => {
+      return {
+        restMinutes: prevState.restMinutes,
+        workMinutes: prevState.workMinutes,
+        seconds: prevState.seconds,
+        break: prevState.break,
+        start: false,
+        interval: clearInterval(prevState.interval)
+      };
+    });
   };
 
   render() {
@@ -184,14 +242,33 @@ class Story extends Component {
           </Grid>
           <Grid container className="Todos_container">
             <Grid item xs={12} className="Create_todo_button_container">
-              <Button
-                variant="contained"
-                color="primary"
-                className="Create_todo_button"
-                onClick={this.toggleTodoPopup}
-              >
-                Create Todo
+              <Grid item xs={5}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  className="Create_todo_button"
+                  onClick={this.toggleTodoPopup}
+                >
+                  Create Todo
               </Button>
+              </Grid>
+              <Grid item xs={7} className="Pomodoro_container">
+                <Grid item xs={3} className="Pomodoro_header">
+                  <h2>Pomodoro</h2>
+                </Grid>
+                <Grid item xs={9}>
+                  <Pomodoro
+                    timer={this.timer}
+                    workMinutes={this.state.workMinutes}
+                    restMinutes={this.state.restMinutes}
+                    seconds={this.state.seconds}
+                    state={this.state.start}
+                    break={this.state.break}
+                    startTimer={this.startTimer}
+                    pauseTimer={this.pauseTimer}
+                  />
+                </Grid>
+              </Grid>
             </Grid>
             <Grid item xs={12} className="Todoslist_headings_container">
               <Grid item xs={3} className="Todoslist_heading">Status</Grid>

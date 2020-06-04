@@ -69,17 +69,26 @@
 .Todos_container {
   background-color: ghostwhite;
   border-top: 2px dashed black;
-  border-bottom: 2px dashed black;
   padding-bottom: 20px;
 
   .Create_todo_button_container {
-    padding-top: 50px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding: 30px;
     background-color: ghostwhite;
+    display: flex;
+    border-bottom: 2px dashed black;
 
     .Create_todo_button {
       min-width: 115px;
+    }
+
+    .Pomodoro_container {
+      display: flex;
+
+      .Pomodoro_header {
+        text-align: center;
+        color: #3F51B5;
+        margin-top: 3px;
+      }
     }
   }
 
@@ -95,6 +104,29 @@
       text-align: left;
       padding-left: 1rem;
       text-decoration: underline;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .Create_todo_button_container {
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 0px !important;
+
+    .Create_todo_button {
+      margin-bottom: 20px;
+    }
+
+    .Pomodoro_container {
+      flex-direction: column;
+      max-width: 300px !important;
+      width: 300px !important;
+      align-items: center;
+
+      .Pomodoro_header {
+        max-width: inherit;
+      }
     }
   }
 }
