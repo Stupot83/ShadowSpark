@@ -1,0 +1,47 @@
+.Pomodoro_details_container {
+ display: flex;
+
+ .Pomodoro_clock {
+  text-align: center;
+  margin-top: 3px;
+ }
+
+ .Pomodoro_button_container {
+  display: flex;
+
+  .Pomodoro_button {
+   margin-left: 10px;
+   margin-right: 10px;
+  }
+ }
+}
+
+@media (max-width: 800px) {
+ .Pomodoro_details_container {
+  flex-direction: column;
+  padding: 20px;
+  max-width: 100% !important;
+  width: 100% !important;
+  align-items: center;
+  padding-bottom: 0px !important;
+
+  .Pomodoro_clock {
+   text-align: center;
+   margin-top: 3px;
+   width: inherit !important;
+   max-width: inherit !important;
+  }
+
+  .Pomodoro_button_container {
+   flex-direction: column;
+   padding: 20px;
+   width: inherit !important;
+   max-width: inherit !important;
+   padding-bottom: 10px !important;
+
+   .Pomodoro_button {
+    margin-bottom: 20px;
+   }
+  }
+ }
+}
