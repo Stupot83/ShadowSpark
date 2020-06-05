@@ -7,7 +7,7 @@ const Pomodoro = props => {
  return (
   <Grid item xs={12} className="Pomodoro_details_container">
    <Grid item xs={5} className="Pomodoro_clock">
-    <h2>
+    <h2 id="pomodoroTime">
      {props.break ? props.restMinutes : props.workMinutes} : {props.seconds < 10 ? `0${props.seconds}` : props.seconds}
     </h2>
    </Grid>
@@ -17,6 +17,7 @@ const Pomodoro = props => {
       className="Pomodoro_button"
       variant="outlined"
       color="primary"
+      id="startButton"
       onClick={props.startTimer}>Start
    </Button>
     </Grid>
@@ -25,6 +26,7 @@ const Pomodoro = props => {
       className="Pomodoro_button"
       variant="outlined"
       color="secondary"
+      id="pauseButton"
       onClick={props.pauseTimer}>Pause
    </Button>
     </Grid>

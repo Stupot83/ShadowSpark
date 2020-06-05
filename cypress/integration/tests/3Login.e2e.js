@@ -330,9 +330,170 @@ describe('When the Login page is loaded', () => {
         });
     });
 
+    describe('When the user clicks to view the story', () => {
+        before(() => {
+            displayPage.clickViewStoryButton();
+        });
+
+        it("then the url is correct", () => {
+            displayPage.checkTodoUrl();
+        });
+
+        it("then the todoPageHeader is set properly", () => {
+            displayPage.todoPageHeaderIsVisible();
+        });
+
+        it('the todoPageHeader should contain the correct text', () => {
+            displayPage.checkTodoPageHeaderText();
+        });
+
+        it("then the goBackButton is set properly", () => {
+            displayPage.goBackButtonIsVisible();
+        });
+
+        it('the goBackButton should contain the correct text', () => {
+            displayPage.checkGoBackButtonText();
+        });
+
+        it("then the createTodoButton is set properly", () => {
+            displayPage.createTodoButtonIsVisible();
+        });
+
+        it('the createTodoButton should contain the correct text', () => {
+            displayPage.checkCreateTodoButtonText();
+        });
+
+        it("then the pomodoroTitle is set properly", () => {
+            displayPage.pomodoroTitleIsVisible();
+        });
+
+        it('the pomodoroTitle should contain the correct text', () => {
+            displayPage.checkPomodoroTitleText();
+        });
+
+        it("then the pomodoroTime is set properly", () => {
+            displayPage.pomodoroTimeIsVisible();
+        });
+
+        it('the pomodoroTime should contain the correct text', () => {
+            displayPage.checkPomodoroTimeText();
+        });
+
+        it("then the startButton is set properly", () => {
+            displayPage.startButtonIsVisible();
+        });
+
+        it('the startButton should contain the correct text', () => {
+            displayPage.checkStartButtonText();
+        });
+
+        it("then the pauseButton is set properly", () => {
+            displayPage.pauseButtonIsVisible();
+        });
+
+        it('the pauseButton should contain the correct text', () => {
+            displayPage.checkPauseButtonText();
+        });
+
+        it("then the statusHeader is set properly", () => {
+            displayPage.statusHeaderIsVisible();
+        });
+
+        it('the statusHeader should contain the correct text', () => {
+            displayPage.checkStatusHeaderText();
+        });
+
+        it("then the descriptionHeader is set properly", () => {
+            displayPage.descriptionHeaderIsVisible();
+        });
+
+        it('the descriptionHeader should contain the correct text', () => {
+            displayPage.checkDescriptionHeaderText();
+        });
+
+        it("then the assigneeHeader is set properly", () => {
+            displayPage.assigneeHeaderIsVisible();
+        });
+
+        it('the assigneeHeader should contain the correct text', () => {
+            displayPage.checkAssigneeHeaderText();
+        });
+    });
+
+    describe('When the user clicks to create a todo', () => {
+
+        before(() => {
+            displayPage.clickCreateTodoButton();
+        });
+
+        it("then the url is correct", () => {
+            displayPage.checkTodoUrl();
+        });
+
+        it("then the popupTodoHeader is set properly", () => {
+            displayPage.popupTodoHeaderIsVisible();
+        });
+
+        it('the popupTodoHeader should contain the correct text', () => {
+            displayPage.checkPopupTodoHeaderText();
+        });
+
+        it("then the popupTodoDescriptionLabel is set properly", () => {
+            displayPage.popupTodoDescriptionLabelIsVisible();
+        });
+
+        it('the popupTodoDescriptionLabel should contain the correct text', () => {
+            displayPage.checkPopupTodoDescriptionLabelText();
+        });
+
+        it("then the popupTodoDescriptionField is set properly", () => {
+            displayPage.popupTodoDescriptionFieldIsVisible();
+        });
+
+        it('the popupTodoDescriptionField should contain the correct text', () => {
+            displayPage.checkPopupTodoDescriptionFieldText();
+        });
+
+        it("then the popupTodoAssigneeLabel is set properly", () => {
+            displayPage.popupTodoAssigneeLabelIsVisible();
+        });
+
+        it('the popupTodoAssigneeLabel should contain the correct text', () => {
+            displayPage.checkPopupTodoAssigneeLabelText();
+        });
+
+        it("then the popupTodoCreateTodoButton is set properly", () => {
+            displayPage.popupTodoCreateTodoButtonIsVisible();
+        });
+
+        it('the popupTodoCreateTodoButton should contain the correct text', () => {
+            displayPage.checkPopupTodoCreateTodoButtonText();
+        });
+    });
+
+    describe('When the user fills in the create Todo Popup ', () => {
+
+        it("then the url is correct", () => {
+            displayPage.checkTodoUrl();
+        });
+
+        it('the todo name field is filled in correctly', () => {
+            displayPage.fillTodoNameDescriptionField();
+        });
+
+        it('the assignee is selected correctly', () => {
+            displayPage.selectAssignee();
+        });
+
+        it("then the user clicks to create the todo", () => {
+            displayPage.clickPopupTodoCreateTodoButton();
+        });
+    });
+
     describe('When the user clicks to edit the story', () => {
 
         before(() => {
+            cy.go('back');
             displayPage.clickEditStoryButton();
         });
 
