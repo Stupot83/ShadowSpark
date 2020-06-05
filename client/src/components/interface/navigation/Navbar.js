@@ -88,6 +88,7 @@ const Navbar = props => {
             <Typography
               variant="h6"
               className="Navbar_title"
+              id="navTitle"
               button="true"
               onClick={redirectToHome}
             >
@@ -95,9 +96,10 @@ const Navbar = props => {
             </Typography>{" "}
           </Grid>
           <Grid className="Profile" item xs={5}>
-            <Button onClick={handleClick}>
+            <Button onClick={handleClick} id="accountIcon">
               <AccountCircle
                 className="AccountCircle"
+                id="accountButton"
                 aria-controls="customized-menu"
                 aria-haspopup="true"
                 fontSize="large"
@@ -112,18 +114,18 @@ const Navbar = props => {
             >
               <StyledMenuItem button onClick={redirectToHome}>
                 <ListItemIcon>
-                  <HomeIcon fontSize="large" />
+                  <HomeIcon fontSize="large" id="homeIcon" />
                 </ListItemIcon>
-                <ListItemText primary="Home" />
+                <ListItemText primary="Home" id="homeHeader" />
               </StyledMenuItem>
               <StyledMenuItem onClick={onLogoutClick}>
                 <ListItemIcon>
-                  <ExitToAppIcon fontSize="large" />
+                  <ExitToAppIcon fontSize="large" id="signOutIcon" />
                 </ListItemIcon>
-                <ListItemText primary="Sign-Out" />
+                <ListItemText primary="Sign-Out" id="signOutHeader" />
               </StyledMenuItem>
             </StyledMenu>
-            <Typography className="Profile_email">{email}</Typography>{" "}
+            <Typography className="Profile_email" id="emailAddress">{email}</Typography>{" "}
           </Grid>
         </Grid>
       </Toolbar>

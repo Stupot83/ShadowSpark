@@ -99,6 +99,7 @@ const HamburgerMenu = props => {
           aria-label="open drawer"
           onClick={handleDrawerOpen}
           edge="start"
+          id="hamburger"
           className={clsx(classes.menuButton, open && classes.hide)}
         >
           <MenuIcon className="Hamburger_icon" fontSize="large" />
@@ -114,37 +115,37 @@ const HamburgerMenu = props => {
         }}
       >
         <div className={classes.drawerHeader}>
-          <img className="Logo_menu" src={Logo} alt="Logo" />
+          <img className="Logo_menu" id="logoMenu" src={Logo} alt="Logo" />
           <IconButton onClick={handleDrawerClose}>
-            <ChevronLeftIcon fontSize="large" className="Chevron_icon" />
+            <ChevronLeftIcon fontSize="large" className="Chevron_icon" id="chevron" />
           </IconButton>
         </div>
         <Divider classes={{ root: classes.dividerColor }} />
         <List>
           <ListItem button onClick={redirectToHome}>
             <ListItemIcon>
-              <HomeIcon className="Hamburger_list_icon" fontSize="large" />
+              <HomeIcon className="Hamburger_list_icon" id="homeIcon" fontSize="large" />
             </ListItemIcon>
-            <ListItemText className="Hamburger_list_text" primary="Home" />
+            <ListItemText className="Hamburger_list_text" id="homeHeader" primary="Home" />
           </ListItem>
           <ListItem button onClick={onLogoutClick}>
             <ListItemIcon>
-              <ExitToAppIcon className="Hamburger_list_icon" fontSize="large" />
+              <ExitToAppIcon className="Hamburger_list_icon" id="signOutIcon" fontSize="large" />
             </ListItemIcon>
-            <ListItemText className="Hamburger_list_text" primary="Sign-out" />
+            <ListItemText className="Hamburger_list_text" id="signOutHeader" primary="Sign-out" />
           </ListItem>
           <ListItem button>
             <ListItemIcon>
-              <SettingsBrightnessIcon className="Hamburger_list_icon" fontSize="large" />
+              <SettingsBrightnessIcon className="Hamburger_list_icon" id="settingsIcon" fontSize="large" />
             </ListItemIcon>
-            <ListItemText className="Hamburger_list_text" primary="Dark Mode" />
+            <ListItemText className="Hamburger_list_text" id="settingsHeader" primary="Dark Mode" />
           </ListItem>
           <Divider classes={{ root: classes.dividerColor }} />
           <ListItem>
             <ListItemIcon>
-              <AccountTreeIcon className="Hamburger_list_icon" fontSize="large" />
+              <AccountTreeIcon className="Hamburger_list_icon" id="storiesIcon" fontSize="large" />
             </ListItemIcon>
-            <ListItemText className="Hamburger_list_text" primary="Stories" />
+            <ListItemText className="Hamburger_list_text" id="storiesHeader" primary="Stories" />
           </ListItem>
           <ListItem>
             <ListItemText>{storyData}</ListItemText>
