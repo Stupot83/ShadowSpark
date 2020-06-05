@@ -105,4 +105,37 @@ describe('When the Registration page is loaded', () => {
 
     });
 
+    describe('When the Registration page is loaded for a second user', () => {
+
+        before(() => {
+            cy.visit("/");
+            landingPage.clickRegisterButton();
+        });
+
+        it("the name field should be populated", () => {
+            registrationPage.fillSecondNameField();
+        });
+
+        it("the email field should be populated", () => {
+            registrationPage.fillSecondEmailField();
+        });
+
+        it("the password field should be populated", () => {
+            registrationPage.fillSecondPasswordField();
+        });
+
+        it("the confirmPassword field should be populated", () => {
+            registrationPage.fillSecondConfirmPasswordField();
+        });
+
+        describe('When the form is submitted to register the user', () => {
+            
+            it("the form is submitted, and the user is redirected to the login page", () => {
+                registrationPage.submitRegistrationForm();
+            });
+
+        });
+
+    });
+
 });

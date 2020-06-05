@@ -82,19 +82,35 @@ function checkLoginLinkText() {
 }
 
 function fillNameField() {
-    cy.get(nameInput).type("dave");
+    cy.get(nameInput).type("Sergei");
 }
 
 function fillEmailField() {
-    cy.get(emailInput).type("dave@dave.com");
+    cy.get(emailInput).type("sergei@comparethemeerkat.com");
 }
 
 function fillPasswordField() {
-    cy.get(passwordInput).type("davedavedavedave");
+    cy.get(passwordInput).type("sergeisergeisergei");
 }
 
 function fillConfirmPasswordField() {
-    cy.get(confirmPasswordInput).type("davedavedavedave");
+    cy.get(confirmPasswordInput).type("sergeisergeisergei");
+}
+
+function fillSecondNameField() {
+    cy.get(nameInput).type("Aleksandr");
+}
+
+function fillSecondEmailField() {
+    cy.get(emailInput).type("aleksandr@comparethemeerkat.com");
+}
+
+function fillSecondPasswordField() {
+    cy.get(passwordInput).type("aleksandraleksandr");
+}
+
+function fillSecondConfirmPasswordField() {
+    cy.get(confirmPasswordInput).type("aleksandraleksandr");
 }
 
 function submitRegistrationForm() {
@@ -123,5 +139,9 @@ module.exports = {
     fillEmailField,
     fillPasswordField,
     fillConfirmPasswordField,
+    fillSecondNameField,
+    fillSecondEmailField,
+    fillSecondPasswordField,
+    fillSecondConfirmPasswordField,
     submitRegistrationForm
 };
