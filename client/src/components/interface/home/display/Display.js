@@ -43,13 +43,14 @@ class Display extends Component {
     let storyData = stories.sort().map(story => (
       <Card key={story._id} className="Story_card">
         <Grid item xs={12}>
-          <Typography className="Story_name">{story.name}</Typography>
+          <Typography className="Story_name" id="storyTitle">{story.name}</Typography>
         </Grid>
         <Grid item xs={12}>
           <Button
             variant="contained"
             color="secondary"
             className="Story_option_button"
+            id="editStoryButton"
             onClick={this.toggleEditPopup.bind(
               this,
               story.name,
@@ -66,6 +67,7 @@ class Display extends Component {
             variant="contained"
             color="primary"
             className="Story_option_button"
+            id="viewStoryButton"
             onClick={() => this.props.history.push(`/stories/${story._id}`)}
           >
             View Story

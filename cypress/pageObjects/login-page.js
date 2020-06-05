@@ -62,11 +62,11 @@ function checkRegisterLinkText() {
 }
 
 function fillEmailField() {
-    cy.get(emailInput).type("dave@dave.com");
+    cy.get(emailInput).type("sergei@comparethemeerkat.com");
 }
 
 function fillPasswordField() {
-    cy.get(passwordInput).type("davedavedavedave");
+    cy.get(passwordInput).type("sergeisergeisergei");
 }
 
 function submitLoginForm() {

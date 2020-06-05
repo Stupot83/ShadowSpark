@@ -326,7 +326,7 @@ class Popup extends Component {
               Edit Story
             </Typography>
           </Grid>
-          <Grid item xs={12} className="Popup_story_creator">
+          <Grid item xs={12} className="Popup_story_creator" id="creator">
             <Typography>
               Created by {this.props.owner.name} ({this.props.owner.email})
             </Typography>
@@ -381,7 +381,7 @@ class Popup extends Component {
                     />
                   </label>
                   <label
-                    className="Popup_form_mateymabobs_label split-email"
+                    className="Popup_form_mateymabobs_label"
                     htmlFor={emailId}
                   >
                     Email
@@ -399,6 +399,7 @@ class Popup extends Component {
                     variant="outlined"
                     color="secondary"
                     className="Popup_form_mateymabobs_remove"
+                    id="removeMateyButton"
                     onClick={this.deleteMember.bind(this, id)}
                   >
                     Remove
@@ -411,6 +412,7 @@ class Popup extends Component {
             <Button
               variant="contained"
               color="primary"
+              id="popupUpdateStoryButton"
               onClick={this.updateStory.bind(this, this.props.id)}
             >
               Update Story
@@ -421,6 +423,7 @@ class Popup extends Component {
               <Button
                 variant="contained"
                 color="secondary"
+                id="popupDeleteStoryButton"
                 onClick={this.deleteStory.bind(this, this.props.id)}
               >
                 Delete Story
@@ -446,13 +449,13 @@ class Popup extends Component {
               fontSize="large"
               onClick={this.onClose}
             ></CloseIcon>
-            <Typography variant="h4" className="Popup_header">
+            <Typography variant="h4" className="Popup_header" id="createStoryHeader">
               Create Story
             </Typography>
           </Grid>
           <Grid item xs={12} className="Popup_name_container">
             <label>
-              <div className="Popup_form_label">Story Name</div>
+              <div className="Popup_form_label" id="createStoryName">Story Name</div>
               <input
                 onChange={this.onChange}
                 value={this.state.storyName}
@@ -468,6 +471,7 @@ class Popup extends Component {
               variant="outlined"
               color="primary"
               className="Popup_form_mateys_button"
+              id="mateymabobsButton"
               onClick={this.addMember}
             >
               Add Mateymabobs
@@ -485,7 +489,8 @@ class Popup extends Component {
                   key={id}
                 >
                   <label
-                    className="Popup_form_mateymabobs_label"
+                    name="nameHeader"
+                    className="Popup_form_mateymabobs_label mateyNameLabel"
                     htmlFor={memberId}
                   >
                     Name
@@ -495,12 +500,13 @@ class Popup extends Component {
                       data-id={id}
                       id={memberId}
                       value={members[id].name}
-                      className="Popup_form_mateymabobs_input"
+                      className="Popup_form_mateymabobs_input mateyNameLabel"
                       onChange={this.onChange}
                     />
                   </label>
                   <label
-                    className="Popup_form_mateymabobs_label split-email"
+                    name="emailHeader"
+                    className="Popup_form_mateymabobs_label"
                     htmlFor={emailId}
                   >
                     Email
@@ -518,6 +524,7 @@ class Popup extends Component {
                     variant="outlined"
                     color="secondary"
                     className="Popup_form_mateymabobs_remove"
+                    id="removeMateyButton"
                     onClick={this.deleteMember.bind(this, id)}
                   >
                     Remove
@@ -530,6 +537,7 @@ class Popup extends Component {
             <Button
               variant="contained"
               color="primary"
+              id="popupCreateStoryButton"
               onClick={this.createStory}
             >
               Create Story

@@ -212,10 +212,187 @@ describe('When the Login page is loaded', () => {
 
         before(() => {
             cy.go('back');
+            displayPage.clickCreateStoryButton();
         });
 
         it("then the url is correct", () => {
             displayPage.checkDisplayUrl();
+        });
+
+        it("then the createStoryHeader is set properly", () => {
+            displayPage.createStoryHeaderIsVisible();
+        });
+
+        it('the createStoryHeader should contain the correct text', () => {
+            displayPage.checkCreateStoryHeaderText();
+        });
+
+        it("then the createStoryName is set properly", () => {
+            displayPage.createStoryNameIsVisible();
+        });
+
+        it('the createStoryName should contain the correct text', () => {
+            displayPage.checkCreateStoryNameText();
+        });
+
+        it("then the storyName is set properly", () => {
+            displayPage.storyNameIsVisible();
+        });
+
+        it('the storyName should contain the correct text', () => {
+            displayPage.checkStoryNameText();
+        });
+
+        it("then the mateymabobsButton is set properly", () => {
+            displayPage.mateymabobsButtonIsVisible();
+        });
+
+        it('the mateymabobsButton should contain the correct text', () => {
+            displayPage.checkMateymabobsButtonText();
+        });
+
+        it("then the mateyNameLabel is set properly", () => {
+            displayPage.mateyNameLabelIsVisible();
+        });
+
+        it('the mateyNameLabel should contain the correct text', () => {
+            displayPage.checkMateyNameLabelText();
+        });
+
+        it("then the mateyEmailLabel is set properly", () => {
+            displayPage.mateyEmailLabelIsVisible();
+        });
+
+        it('the mateyEmailLabel should contain the correct text', () => {
+            displayPage.checkMateyEmailLabelText();
+        });
+
+        it("then the removeMateyButton is set properly", () => {
+            displayPage.removeMateyButtonIsVisible();
+        });
+
+        it('the removeMateyButton should contain the correct text', () => {
+            displayPage.checkRemoveMateyButtonText();
+        });
+    });
+
+    describe('When the user fills in the Create Story Popup', () => {
+
+        it("then the url is correct", () => {
+            displayPage.checkDisplayUrl();
+        });
+
+        it('the story name field is filled in correctly', () => {
+            displayPage.fillStoryNameField();
+        });
+
+        it('the matey name field is filled in correctly', () => {
+            displayPage.fillMateyNameField();
+        });
+
+        it('the matey email field is filled in correctly', () => {
+            displayPage.fillMateyEmailField();
+        });
+    });
+
+    describe('When the user clicks to create the story', () => {
+
+        before(() => {
+            displayPage.clickPopupCreateStoryButton();
+        });
+
+        it("then the url is correct", () => {
+            displayPage.checkDisplayUrl();
+        });
+
+        it("then the storyTitle is set properly", () => {
+            displayPage.storyTitleIsVisible();
+        });
+
+        it('the storyTitle should contain the correct text', () => {
+            displayPage.checkStoryTitleText();
+        });
+
+        it("then the editStoryButton is set properly", () => {
+            displayPage.editStoryButtonIsVisible();
+        });
+
+        it('the editStoryButton should contain the correct text', () => {
+            displayPage.checkEditStoryButtonText();
+        });
+
+        it("then the viewStoryButton is set properly", () => {
+            displayPage.viewStoryButtonIsVisible();
+        });
+
+        it('the viewStoryButton should contain the correct text', () => {
+            displayPage.checkViewStoryButtonText();
+        });
+    });
+
+    describe('When the user clicks to edit the story', () => {
+
+        before(() => {
+            displayPage.clickEditStoryButton();
+        });
+
+        it("then the url is correct", () => {
+            displayPage.checkDisplayUrl();
+        });
+
+        it("then the creator is set properly", () => {
+            displayPage.creatorIsVisible();
+        });
+
+        it('the creator should contain the correct text', () => {
+            displayPage.checkCreatorText();
+        });
+    });
+
+    describe('When the user changes the story name and removes the mateymabob', () => {
+
+        before(() => {
+            displayPage.changeStoryName();
+            displayPage.clickRemoveMateyButton();
+        });
+
+        it("then the url is correct", () => {
+            displayPage.checkDisplayUrl();
+        });
+
+        it("then the user clicks the update story button", () => {
+            displayPage.clickPopupUpdateStoryButton();
+        });
+
+        it("then the url is correct", () => {
+            landingPage.clickLoginButton();
+            loginPage.fillEmailField();
+            loginPage.fillPasswordField();
+            loginPage.submitLoginForm();
+            displayPage.checkDisplayUrl();
+        });
+
+        it('the storyTitle should contain the correct text', () => {
+            displayPage.checkStoryTitleChangedText();
+        });
+    });
+
+    describe('When the user clicks to delete the story', () => {
+
+        before(() => {
+            displayPage.clickEditStoryButton();
+        });
+
+        it("then the url is correct", () => {
+            displayPage.checkDisplayUrl();
+        });
+
+        it("then the user clicks the delete story button", () => {
+            displayPage.clickPopupDeleteStoryButton();
+        });
+
+        it("then the noStoriesHeader is set properly", () => {
+            displayPage.noStoriesHeaderIsVisible();
         });
     });
 });
