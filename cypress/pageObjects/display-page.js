@@ -31,9 +31,27 @@ const viewStoryButton = "#viewStoryButton";
 const creator = "#creator";
 const popupUpdateStoryButton = "#popupUpdateStoryButton";
 const popupDeleteStoryButton = "#popupDeleteStoryButton";
+const todoPageHeader = "#todoPageHeader";
+const goBackButton = "#goBackButton";
+const createTodoButton = "#createTodoButton";
+const pomodoroTitle = "#pomodoroTitle";
+const pomodoroTime = "#pomodoroTime";
+const startButton = "#startButton";
+const pauseButton = "#pauseButton";
+const statusHeader = "#statusHeader";
+const descriptionHeader = "#descriptionHeader";
+const assigneeHeader = "#assigneeHeader";
+const popupTodoHeader = "#popupTodoHeader";
+const popupTodoDescriptionLabel = "#popupTodoDescriptionLabel";
+const popupTodoAssigneeLabel = "#popupTodoAssigneeLabel";
+const popupTodoCreateTodoButton = "#popupTodoCreateTodoButton";
 
 function checkDisplayUrl() {
  cy.url().should('eq', 'http://localhost:3000/display');
+}
+
+function checkTodoUrl() {
+ cy.url().should('include', '/stories');
 }
 
 function hamburgerIsVisible() {
@@ -269,8 +287,149 @@ function clickPopupDeleteStoryButton() {
  clickElement(popupDeleteStoryButton);
 }
 
+function clickViewStoryButton() {
+ clickElement(viewStoryButton);
+}
+
+function todoPageHeaderIsVisible() {
+ elementIsVisible(todoPageHeader);
+}
+
+function checkTodoPageHeaderText() {
+ cy.get(todoPageHeader).should('have.text', "AutoSergei");
+}
+
+function goBackButtonIsVisible() {
+ elementIsVisible(goBackButton);
+}
+
+function checkGoBackButtonText() {
+ cy.get(goBackButton).should('have.text', "Go Back");
+}
+
+function createTodoButtonIsVisible() {
+ elementIsVisible(createTodoButton);
+}
+
+function checkCreateTodoButtonText() {
+ cy.get(createTodoButton).should('have.text', "Create Todo");
+}
+
+function pomodoroTitleIsVisible() {
+ elementIsVisible(pomodoroTitle);
+}
+
+function checkPomodoroTitleText() {
+ cy.get(pomodoroTitle).should('have.text', "Pomodoro");
+}
+
+function pomodoroTimeIsVisible() {
+ elementIsVisible(pomodoroTime);
+}
+
+function checkPomodoroTimeText() {
+ cy.get(pomodoroTime).should('have.text', "25 : 00");
+}
+
+function startButtonIsVisible() {
+ elementIsVisible(startButton);
+}
+
+function checkStartButtonText() {
+ cy.get(startButton).should('have.text', "Start");
+}
+
+function pauseButtonIsVisible() {
+ elementIsVisible(pauseButton);
+}
+
+function checkPauseButtonText() {
+ cy.get(pauseButton).should('have.text', "Pause");
+}
+
+function statusHeaderIsVisible() {
+ elementIsVisible(statusHeader);
+}
+
+function checkStatusHeaderText() {
+ cy.get(statusHeader).should('have.text', "Status");
+}
+
+function descriptionHeaderIsVisible() {
+ elementIsVisible(descriptionHeader);
+}
+
+function checkDescriptionHeaderText() {
+ cy.get(descriptionHeader).should('have.text', "Description");
+}
+
+function assigneeHeaderIsVisible() {
+ elementIsVisible(assigneeHeader);
+}
+
+function checkAssigneeHeaderText() {
+ cy.get(assigneeHeader).should('have.text', "Assignee");
+}
+
+function clickCreateTodoButton() {
+ clickElement(createTodoButton);
+}
+
+function popupTodoHeaderIsVisible() {
+ elementIsVisible(popupTodoHeader);
+}
+
+function checkPopupTodoHeaderText() {
+ cy.get(popupTodoHeader).should('have.text', "Create Todo");
+}
+
+function popupTodoDescriptionLabelIsVisible() {
+ elementIsVisible(popupTodoDescriptionLabel);
+}
+
+function checkPopupTodoDescriptionLabelText() {
+ cy.get(popupTodoDescriptionLabel).should('have.text', "Todo Description");
+}
+
+function popupTodoDescriptionFieldIsVisible() {
+ cy.get('input[name="popupTodoDescriptionField"]');
+}
+
+function checkPopupTodoDescriptionFieldText() {
+ cy.get('input[name="popupTodoDescriptionField"]').should('have.text', "");
+}
+
+function popupTodoAssigneeLabelIsVisible() {
+ elementIsVisible(popupTodoAssigneeLabel);
+}
+
+function checkPopupTodoAssigneeLabelText() {
+ cy.get(popupTodoAssigneeLabel).should('have.text', "Assignee");
+}
+
+function popupTodoCreateTodoButtonIsVisible() {
+ elementIsVisible(popupTodoCreateTodoButton);
+}
+
+function checkPopupTodoCreateTodoButtonText() {
+ cy.get(popupTodoCreateTodoButton).should('have.text', "Create Todo");
+}
+
+function fillTodoNameDescriptionField() {
+ cy.get('input[name="popupTodoDescriptionField"]').type("Feed Oleg");
+}
+
+function clickPopupTodoCreateTodoButton() {
+ clickElement(popupTodoCreateTodoButton);
+}
+
+function selectAssignee() {
+ cy.get('select').select('Sergei (You)');
+}
+
 module.exports = {
  checkDisplayUrl,
+ checkTodoUrl,
  hamburgerIsVisible,
  navTitleIsVisible,
  checkNavTitleText,
@@ -328,7 +487,42 @@ module.exports = {
  clickRemoveMateyButton,
  clickPopupUpdateStoryButton,
  checkStoryTitleChangedText,
- clickPopupDeleteStoryButton
+ clickPopupDeleteStoryButton,
+ clickViewStoryButton,
+ todoPageHeaderIsVisible,
+ checkTodoPageHeaderText,
+ goBackButtonIsVisible,
+ checkGoBackButtonText,
+ createTodoButtonIsVisible,
+ checkCreateTodoButtonText,
+ pomodoroTitleIsVisible,
+ checkPomodoroTitleText,
+ pomodoroTimeIsVisible,
+ checkPomodoroTimeText,
+ startButtonIsVisible,
+ checkStartButtonText,
+ pauseButtonIsVisible,
+ checkPauseButtonText,
+ statusHeaderIsVisible,
+ checkStatusHeaderText,
+ descriptionHeaderIsVisible,
+ checkDescriptionHeaderText,
+ assigneeHeaderIsVisible,
+ checkAssigneeHeaderText,
+ clickCreateTodoButton,
+ popupTodoHeaderIsVisible,
+ checkPopupTodoHeaderText,
+ popupTodoDescriptionLabelIsVisible,
+ checkPopupTodoDescriptionLabelText,
+ popupTodoDescriptionFieldIsVisible,
+ checkPopupTodoDescriptionFieldText,
+ popupTodoAssigneeLabelIsVisible,
+ checkPopupTodoAssigneeLabelText,
+ popupTodoCreateTodoButtonIsVisible,
+ checkPopupTodoCreateTodoButtonText,
+ fillTodoNameDescriptionField,
+ clickPopupTodoCreateTodoButton,
+ selectAssignee
 };
 
 

@@ -208,12 +208,13 @@ class Story extends Component {
         <Card className="Story_content_container">
           <Grid item xs={12} className="Story_content_header_container">
             <Grid item xs={6}>
-              <h1 className="Story_content_header">{story.name}</h1>
+              <h1 className="Story_content_header" id="todoPageHeader">{story.name}</h1>
             </Grid>
             <Grid item xs={6} className="Story_content_button_container">
               <Button variant="contained"
                 color="secondary"
                 className="Go_back_button"
+                id="goBackButton"
                 onClick={this.redirectToHome}
               >
                 Go Back
@@ -247,6 +248,7 @@ class Story extends Component {
                   variant="contained"
                   color="primary"
                   className="Create_todo_button"
+                  id="createTodoButton"
                   onClick={this.toggleTodoPopup}
                 >
                   Create Todo
@@ -254,7 +256,7 @@ class Story extends Component {
               </Grid>
               <Grid item xs={7} className="Pomodoro_container">
                 <Grid item xs={3} className="Pomodoro_header">
-                  <h2>Pomodoro</h2>
+                  <h2 id="pomodoroTitle">Pomodoro</h2>
                 </Grid>
                 <Grid item xs={9}>
                   <Pomodoro
@@ -271,9 +273,9 @@ class Story extends Component {
               </Grid>
             </Grid>
             <Grid item xs={12} className="Todoslist_headings_container">
-              <Grid item xs={3} className="Todoslist_heading">Status</Grid>
-              <Grid item xs={6} className="Todoslist_heading">Description</Grid>
-              <Grid item xs={3} className="Todoslist_heading">Assignee</Grid>
+              <Grid item xs={3} className="Todoslist_heading" id="statusHeader">Status</Grid>
+              <Grid item xs={6} className="Todoslist_heading" id="descriptionHeader">Description</Grid>
+              <Grid item xs={3} className="Todoslist_heading" id="assigneeHeader">Assignee</Grid>
             </Grid>
             <Grid item xs={12} className="Todoslist_container">{todosList}</Grid>
           </Grid>

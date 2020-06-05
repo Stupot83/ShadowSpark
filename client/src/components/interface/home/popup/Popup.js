@@ -164,14 +164,14 @@ class Popup extends Component {
               fontSize="large"
               onClick={this.onClose}
             ></CloseIcon>
-            <Typography variant="h4" className="Todopopup_header">
+            <Typography variant="h4" className="Todopopup_header" id="popupTodoHeader">
               Create Todo
             </Typography>
           </Grid>
           <form class="Todo_form_container" onSubmit={this.createTodo}>
             <Grid item xs={12} className="Todopopup_name_container">
               <label>
-                <div className="Todopopup_form_label">Todo Description</div>
+                <div className="Todopopup_form_label" id="popupTodoDescriptionLabel">Todo Description</div>
                 <input
                   onChange={this.onChange}
                   value={this.state.todoName}
@@ -179,11 +179,12 @@ class Popup extends Component {
                   type="text"
                   placeholder="Things and Stuff"
                   className="Todopopup_form_input"
+                  name="popupTodoDescriptionField"
                 />
               </label>
             </Grid>
             <label>
-              <Grid item xs={12} className="Todopopup_form_label">Assignee</Grid>
+              <Grid item xs={12} className="Todopopup_form_label" id="popupTodoAssigneeLabel">Assignee</Grid>
               <Grid item xs={12}>
                 <select className="Todopopup_form_select"
                   onChange={this.onSelectChange}
@@ -201,7 +202,7 @@ class Popup extends Component {
             </label>
             <Grid item xs={12} className="Todopopup_form_button">
               <Button variant="contained"
-                color="primary" type="submit">
+                color="primary" type="submit" id="popupTodoCreateTodoButton">
                 Create Todo
             </Button>
             </Grid>
