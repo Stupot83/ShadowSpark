@@ -124,11 +124,11 @@ class Display extends Component {
             justify="center"
             className="No_stories_container"
           >
-            <Grid item xs={12} className="No_stories_header">
+            <Grid item xs={12} className="No_stories_header" id="noStoriesHeader">
               <h2>No current stories - are you on holibobs?</h2>
             </Grid>
             <Grid item xs={12}>
-              <img className="Logo_holiday" src={Logo} alt="Loading" />
+              <img className="Logo_holiday" id="holidayLogo" src={Logo} alt="Loading" />
             </Grid>
             <Grid item xs={12}>
               <Button
@@ -136,6 +136,7 @@ class Display extends Component {
                 color="primary"
                 size="large"
                 className="Create_story_button"
+                id="createStoryButton"
                 onClick={this.togglePopup}
               >
                 Create Story
@@ -155,7 +156,7 @@ class Display extends Component {
 
     return (
       <Card className="Display_container">
-        <h1 className="Display_header">Current Stories</h1>
+        <h1 className="Display_header" id="storyPageHeader">Current Stories</h1>
         {content}
       </Card>
     );
