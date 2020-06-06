@@ -12,7 +12,8 @@
     "test:cypress": "concurrently \"npm run dev\" \"cypress open\"",
     "cypress": "cypress run",
     "test": "jest --config ./jest.config.json",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
