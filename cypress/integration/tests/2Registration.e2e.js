@@ -96,7 +96,7 @@ describe('When the Registration page is loaded', () => {
         });
 
         describe('When the form is submitted to register the user', () => {
-            
+
             it("the form is submitted, and the user is redirected to the login page", () => {
                 registrationPage.submitRegistrationForm();
             });
@@ -129,7 +129,7 @@ describe('When the Registration page is loaded', () => {
         });
 
         describe('When the form is submitted to register the user', () => {
-            
+
             it("the form is submitted, and the user is redirected to the login page", () => {
                 registrationPage.submitRegistrationForm();
             });
