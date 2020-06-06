@@ -79,6 +79,12 @@
   }
 
   .Registration_form {
-    width: 80%;
+    width: 400px !important;
+  }
+}
+
+@media (max-width: 425px) {
+  .Registration_form {
+    width: 300px !important;
   }
 }

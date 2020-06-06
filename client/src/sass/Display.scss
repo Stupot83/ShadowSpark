@@ -87,3 +87,19 @@
     }
   }
 }
+
+@media (max-width: 425px) {
+  .Display_container {
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+
+    .Logo_holiday {
+      width: 180px !important;
+    }
+  }
+
+  .Display_container .Stories_container .Story_card {
+    margin-left: 0rem !important;
+    margin-right: 0rem !important;
+  }
+}
