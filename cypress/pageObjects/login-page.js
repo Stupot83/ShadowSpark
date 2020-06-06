@@ -10,7 +10,7 @@ const emailInput = "#email";
 const passwordInput = "#password";
 
 function checkLoginUrl() {
-    cy.url().should('eq', 'http://localhost:3000/login'); 
+    cy.url().should('eq', 'http://localhost:3000/login');
 }
 
 function formHeaderIsVisible() {

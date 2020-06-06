@@ -7,7 +7,7 @@ const registerButton = "#register";
 const loginButton = "#login";
 
 function checkLandingUrl() {
-    cy.url().should('eq', 'http://localhost:3000/'); 
+    cy.url().should('eq', 'http://localhost:3000/');
 }
 
 function headerIsVisible() {

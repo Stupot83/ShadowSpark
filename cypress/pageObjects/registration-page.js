@@ -14,7 +14,7 @@ const passwordInput = "#password";
 const confirmPasswordInput = "#password2";
 
 function checkRegisterUrl() {
-    cy.url().should('eq', 'http://localhost:3000/register'); 
+    cy.url().should('eq', 'http://localhost:3000/register');
 }
 
 function formHeaderIsVisible() {

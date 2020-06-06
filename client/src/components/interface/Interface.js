@@ -8,7 +8,7 @@ import "../../../src/sass/Interface.scss";
 class Interface extends Component {
   render() {
     return (
-      <div className="Display">      
+      <div className="Display">
         <Home />
       </div>
     );

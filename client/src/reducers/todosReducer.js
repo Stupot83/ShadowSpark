@@ -49,7 +49,7 @@ export default function (state = initialState, action) {
         ...state,
         todosLoading: true
       };
-      
+
     default:
       return state;
   }

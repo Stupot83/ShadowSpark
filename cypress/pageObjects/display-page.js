@@ -524,5 +524,3 @@ module.exports = {
  clickPopupTodoCreateTodoButton,
  selectAssignee
 };
-
-

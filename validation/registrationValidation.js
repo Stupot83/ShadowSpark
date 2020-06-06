@@ -40,3 +40,4 @@ module.exports = function registrationValidation(data) {
     isValid: isEmpty(errors)
   };
 };
+

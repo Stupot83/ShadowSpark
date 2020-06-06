@@ -1,7 +1,7 @@
 {
   "name": "shadowspark",
   "version": "1.0.0",
-  "description": "A Workflow Management Tool for the AllSpark Development Team",
+  "description": "A Workflow Management Tool for the AllSpark Development Team at CTM",
   "main": "server.js",
   "scripts": {
     "client-install": "npm install --prefix client",
@@ -10,9 +10,6 @@
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "test:cypress": "concurrently \"npm run dev\" \"cypress open\"",
-    "cypress": "cypress run",
-    "test": "jest --config ./jest.config.json",
-    "test:watch": "npm run test -- --watch",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
@@ -39,7 +36,6 @@
   },
   "devDependencies": {
     "cypress": "^4.5.0",
-    "jest": "^26.0.1",
     "nodemon": "^2.0.4"
   }
 }

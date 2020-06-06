@@ -24,3 +24,4 @@ module.exports = function loginValidation(data) {
     isValid: isEmpty(errors)
   };
 };
+
