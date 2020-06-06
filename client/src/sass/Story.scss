@@ -130,3 +130,46 @@
     }
   }
 }
+
+@media (max-width: 425px) {
+  .Story_content_container {
+    margin-left: 0.25rem !important;
+    margin-right: 0.25rem !important;
+
+    .Create_todo_button_container {
+      padding-left: 0px !important;
+      padding-right: 0px !important;
+
+      .Create_todo_button {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+      }
+    }
+
+    .Todoslist_headings_container {
+      padding-left: 0px !important;
+      padding-right: 0px !important;
+    }
+
+    .Todoslist_container .Todo_details .Todo_checkbox {
+      margin-left: 10px !important
+    }
+
+    .Todoslist_container .Todo_details .Todo_description {
+      padding-left: 14px !important;
+    }
+
+    .Todoslist_container .Todo_details .Todo_assignee {
+      padding-left: 14px !important;
+    }
+
+    #assigneeHeader {
+      padding-left: 0rem !important;
+    }
+  }
+
+  .Todopopup_container .Todopopup_header_container {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+}

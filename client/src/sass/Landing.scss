@@ -12,13 +12,32 @@
       margin-right: auto;
     }
 
-    .Button_box {
-      text-align: center;
-      height: 80%;
-    }
+    .Button_container {
+      display: flex;
 
-    .Landing_button {
-      min-width: 115px;
+      .Register_box {
+        text-align: right;
+        padding: 30px;
+      }
+
+      .Login_box {
+        text-align: left;
+        padding: 30px;
+      }
+
+      .Landing_button {
+        min-width: 115px;
+      }
     }
+  }
+}
+
+@media (max-width: 425px) {
+  .Register_box {
+    padding: 10px !important;
+  }
+
+  .Login_box {
+    padding: 10px !important;
   }
 }

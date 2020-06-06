@@ -45,41 +45,37 @@ export default function Landing() {
           <Grid className={classes.imageGrid} item xs={12}>
             <img id="logo" className="Loading" src={Loading} alt="Loading" />
           </Grid>
-          <Grid className={classes.buttonGrid} item xs={3}>
-            <Box className="Button_box" variant="outlined"></Box>
-          </Grid>
-          <Grid className={classes.buttonGrid} item xs={3}>
-            <Box className="Button_box" variant="outlined">
-              <Button
-                component={Link}
-                id="register"
-                className="Landing_button"
-                variant="contained"
-                size="large"
-                color="secondary"
-                to="/register"
-              >
-                Register
+          <Grid className="Button_container" item xs={12}>
+            <Grid className={classes.buttonGrid} item xs={6}>
+              <Box className="Register_box" variant="outlined">
+                <Button
+                  component={Link}
+                  id="register"
+                  className="Landing_button"
+                  variant="contained"
+                  size="large"
+                  color="secondary"
+                  to="/register"
+                >
+                  Register
               </Button>
-            </Box>
-          </Grid>
-          <Grid className={classes.buttonGrid} item xs={3}>
-            <Box className="Button_box" variant="outlined">
-              <Button
-                component={Link}
-                id="login"
-                className="Landing_button"
-                variant="contained"
-                size="large"
-                color="primary"
-                to="/login"
-              >
-                Login
+              </Box>
+            </Grid>
+            <Grid className={classes.buttonGrid} item xs={6}>
+              <Box className="Login_box" variant="outlined">
+                <Button
+                  component={Link}
+                  id="login"
+                  className="Landing_button"
+                  variant="contained"
+                  size="large"
+                  color="primary"
+                  to="/login"
+                >
+                  Login
               </Button>
-            </Box>
-          </Grid>
-          <Grid className={classes.buttonGrid} item xs={3}>
-            <Box className="Button_box" variant="outlined"></Box>
+              </Box>
+            </Grid>
           </Grid>
         </Grid>
       </Container>

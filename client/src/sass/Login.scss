@@ -80,6 +80,12 @@
   }
 
   .Login_form {
-    width: 80%;
+    width: 400px !important;
+  }
+}
+
+@media (max-width: 425px) {
+  .Login_form {
+    width: 300px !important;
   }
 }

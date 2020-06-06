@@ -57,3 +57,60 @@
     }
   }
 }
+
+@media (max-width: 425px) {
+  .MuiDrawer-paper {
+    width: 100vw !important;
+
+    .Logo_menu {
+      margin-right: 70px;
+      width: 40%;
+    }
+
+    .Hamburger_list_text {
+      span {
+        color: black;
+        font-size: 24px;
+        margin-left: 95px;
+      }
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .MuiDrawer-paper {
+    width: 100vw !important;
+
+    .Logo_menu {
+      margin-right: 50px;
+      width: 40%;
+    }
+
+    .Hamburger_list_text {
+      span {
+        color: black;
+        font-size: 24px;
+        margin-left: 70px;
+      }
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .MuiDrawer-paper {
+    width: 100vw !important;
+
+    .Logo_menu {
+      margin-right: 40px;
+      width: 40%;
+    }
+
+    .Hamburger_list_text {
+      span {
+        color: black;
+        font-size: 24px;
+        margin-left: 45px;
+      }
+    }
+  }
+}

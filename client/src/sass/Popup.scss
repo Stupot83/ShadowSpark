@@ -256,3 +256,10 @@
     }
   }
 }
+
+@media (max-width: 425px) {
+  .Popup_container {
+    top: 9% !important;
+    padding: 1rem !important;
+  }
+}
