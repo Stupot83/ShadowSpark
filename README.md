@@ -6,7 +6,6 @@ JIRA Story Management Tool for the AllSpark Development Team at CTM. Users are a
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Stupot83/ShadowSpark?style=for-the-badge)
 ![GitHub issues](https://img.shields.io/github/issues-raw/Stupot83/ShadowSpark?style=for-the-badge)
 ![GitHub last commit](https://img.shields.io/github/last-commit/Stupot83/ShadowSpark?style=for-the-badge)
-![Maintenance](https://img.shields.io/maintenance/yes/2019?style=for-the-badge)
 ![GitHub forks](https://img.shields.io/github/forks/Stupot83/ShadowSpark?style=for-the-badge)
 ![GitHub stars](https://img.shields.io/github/stars/Stupot83/ShadowSpark?style=for-the-badge)
 
